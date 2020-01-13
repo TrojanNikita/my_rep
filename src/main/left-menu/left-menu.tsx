@@ -6,7 +6,6 @@ import {LeftMenuItems} from './left-menu-const';
 
 const LeftMenu= () => {
 
-
   const elements = LeftMenuItems.map((item) => {
     return (      
       <li key={item.id} className="left-menu__li">

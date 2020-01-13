@@ -1,14 +1,11 @@
 import * as React from 'react';
 import {hot} from 'react-hot-loader';
-import LeftMenu from './main/left-menu/left-menu';
+import LeftMenu from './left-menu/left-menu';
 
 //Роутинг
 import { Route, Switch, Router } from "react-router-dom";
 
-
-
-
-const App : React.FC<{}>= () => {
+const RootView : React.FC<{}>= () => {
   return (
     <div className="app-main">
         <LeftMenu/>
@@ -16,4 +13,4 @@ const App : React.FC<{}>= () => {
   );
 }
 
-export default App;
+export default RootView;
