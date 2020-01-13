@@ -1,0 +1,64 @@
+$form_width:500px;
+//$back_color:
+$primary_background:rgb(124, 77, 156);
+
+//Цвет списка
+$todo_color: ($primary_background)+5;
+
+$color_title:black;
+$color_subtitle:grey;
+
+$color_menu:rgb(90, 61, 138);
+
+//$color_menu:rgb(248, 219, 192);
+
+$heigth_header:100px;
+$heigth_add_form:100px;
+
+$heigth_li:100px;
+
+$heigth_nav:100px;
+
+//толщина заголовка
+$font-weight-header: 550;
+//толщина строки "кол-во активных дел"
+$font-weight-subheader: 550;
+
+//внутренний и внешний цвет
+@mixin color_btn($background, $text){
+    color: $text;
+    background-color: $background;
+}  
+
+//рамка  
+@mixin border_btn ($clr,$count){
+    @for $i from 1 through $count { 
+        box-shadow: 0 0 0 $i*3px $clr+$i*2;
+    }
+}
+
+
+@mixin star_empty {
+    font-family: 'FontAwesome';
+                content: "\f006";    
+}
+
+@mixin star_active {
+    font-family: 'FontAwesome';
+                content: "\f005";    
+}
+
+@mixin square ($width, $height) {
+    width: $width ;
+    height: $height;  
+}
+
+@mixin item-border(){
+
+    border:none;
+    outline:none;
+  }
+//border radius у формы для добавления
+//он же отступ от краев у списка
+$border-radius-add:$form_width/5;
+$list-padding:$border-radius-add/4+10;

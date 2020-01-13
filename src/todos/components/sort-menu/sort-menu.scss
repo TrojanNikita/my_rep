@@ -1,0 +1,63 @@
+@import '../../../const';
+.sort-menu{
+
+    &__btn{
+
+        //margin: 1.8rem;
+        text-align: left;
+        @include color_btn($primary_background,$color_title);
+        @include item_border();   
+        font-weight: bold;
+        &:focus{
+                 @include item_border();   
+        }
+        &:hover{
+
+            border-radius: 5px;
+            @include color_btn(($primary_background)-10,$color_title);
+        }
+        &--active{
+            @extend .sort-menu__btn;
+            border-radius: 5px;
+            @include color_btn(($primary_background),$color_title);
+        }
+    }
+
+    &__modes{
+        
+        @include border_btn(($color_menu),3);
+        border-radius: 5px;
+        display: block;
+        position:absolute; 
+        margin-top: -2.4rem;
+        margin-left: 10rem;
+        box-sizing: border-box;
+        width: 100px;
+        background-color: $color_menu; 
+        z-index: 101;
+
+        &__btn{
+            width: 100%;
+            @include color_btn($color_menu,$color_title);
+            @include item_border();  
+            border-bottom: 1px solid ($color_menu)-20; 
+            &:focus{
+                @include item_border();   
+            }
+            &:hover{
+                width: 100%;
+                @include color_btn(($primary_background),$color_title);
+            }
+            &--active{
+                    width: 100%;
+                    @include color_btn(($color_menu)+15,$color_title);
+                    @include item_border();  
+                    border-bottom: 1px solid ($color_menu)-20; 
+                    &:focus{
+                        @include item_border();   
+                    }
+            }
+        }
+    }
+
+}

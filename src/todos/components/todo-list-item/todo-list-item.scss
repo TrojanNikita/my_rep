@@ -1,0 +1,60 @@
+@import '../../../const';
+
+.item {
+  height:$heigth_li;
+  margin: 0;
+  padding: 0;
+  @include item-border();
+  cursor: pointer;
+  @include color_btn($todo_color,$color_title);
+  
+  &__left{
+      margin: 0;
+      padding: 20px;
+      height:$heigth_li;
+      width: 80%;
+      cursor: pointer;
+      border:none;
+      outline:none;
+      position: absolute;
+      float: left;
+      &__edit{
+        @include color_btn($todo_color,$color_title);
+
+        border:none;
+        border-bottom: 1px solid ($primary_background)-20;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        outline:none;
+        cursor: pointer;
+
+            &--done{
+              width: 100%;
+              @include color_btn($todo_color,$color_title);
+              border:none;
+              border-bottom: 1px solid ($primary_background)-20;
+              margin: 0;
+              padding: 0;
+              cursor: pointer;
+              outline:none;
+              text-decoration: line-through;
+            }
+      }
+  }
+
+  &__right{
+    margin: 0;
+    padding: 0;
+    @include color_btn($todo_color,$color_title);
+    width: 20%;
+    height: $heigth_li;
+    border:none;
+    float: right;
+
+    
+  }
+
+}
+
+
