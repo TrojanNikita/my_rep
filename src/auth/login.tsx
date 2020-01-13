@@ -1,9 +1,9 @@
 import * as React from 'react';
 // import Panel from '../ui/Panel'
-// import Card from '../ui/Card'
 import { useAuthUser } from '../utils/AuthUser';
 import {useHistory} from 'react-router-dom';
 
+import './auth.scss';
 // Fake API Network Call
 // const apiLogin = (username, password) => {
 //   return new Promise((resolve, reject) => {
@@ -24,8 +24,8 @@ const Login = () => {
     //e.preventDefault()
     //const [usernameNode, passwordNode] = e.target.elements
     
-    setLogged(true)
-    history.push('/todos')
+    setLogged(true);
+    history.push('/');
 
     // apiLogin(usernameNode.value, passwordNode.value)
     //   .then(() => {
@@ -39,23 +39,23 @@ const Login = () => {
   }
 
   return (
-    <React.Fragment>
-      <div style={{ minHeight: '10em' }}>
-        <h1 className="heading-2">Welcome to Firebase, almost...</h1>
-        <p>
-          The username is <strong>react</strong> and the password is <strong>react</strong>
-        </p>
-        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-        <form className="spacing" onSubmit={handleSubmit}>
-          <input type="text" placeholder="Username" required />
-          <input type="password" placeholder="Password" required />
-          <button type="submit" className="button">
+      <div className='auth-form' style={{ minHeight: '10em' }}>
+        <div className="auth-form__header">
+          <h1 className="heading-2">Welcome to Firebase, almost...</h1>
+          <p>
+            The username is <strong>react</strong> and the password is <strong>react</strong>
+          </p>
+          {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+        </div>
+        <form className="auth-form__content" onSubmit={handleSubmit}>
+          <input type="text" className='auth-form__content__username' placeholder="Username" required />
+          <input type="password" className='auth-form__content__password' placeholder="Password" required />
+          <button type="submit" className="btn btn-dark btn-sm form-login-btn">
             Login
           </button>
         </form>
       </div>
-    </React.Fragment>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
