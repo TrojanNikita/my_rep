@@ -1,6 +1,5 @@
 import { createSelector } from 'reselect';
 
-
 import {GlobalState} from '../types';
 
 import { NONE, SMALL, MIDLE, HIGH} from './../constants/filter-mode'

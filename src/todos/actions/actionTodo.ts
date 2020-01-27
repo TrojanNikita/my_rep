@@ -13,7 +13,7 @@ import {fetchData} from '../services/todo-service';
 export const addTodoThunk= (label:string):PostActionThunk=>async dispatch => {
         try {
                 
-                const data= await fetchData('/todos/new','POST',{name:label});
+                const data= await fetchData('/api/todos/new','POST',{name:label});
                 return dispatch(addTodo(_transformTodo(data)));
         } catch (data) {
                 console.log(data.message)
@@ -23,7 +23,7 @@ export const addTodoThunk= (label:string):PostActionThunk=>async dispatch => {
 
 export const toggleTodoThunk = (id:number, done:Boolean):PostActionThunk=>async dispatch => {
         try {
-                const data:number= await fetchData(`/todos/${id}/status/${done}`,'PUT',{done})
+                const data:number= await fetchData(`/api/todos/${id}/status/${done}`,'PUT',{done})
                 return dispatch(toggleTodo(data));
         } catch (response) {
                 return   dispatch(handleError())               
@@ -32,7 +32,7 @@ export const toggleTodoThunk = (id:number, done:Boolean):PostActionThunk=>async 
 }
 export const editTodoThunk = (id:number,label:string):PostActionThunk=>async dispatch => {
         try {
-                const data:number= await fetchData(`/todos/${id}/name/${label}`,'PUT')
+                const data:number= await fetchData(`/api/todos/${id}/name/${label}`,'PUT')
                 return dispatch(editTodo(data,label));
         } catch (response) {
                 return   dispatch(handleError())               
@@ -41,7 +41,7 @@ export const editTodoThunk = (id:number,label:string):PostActionThunk=>async dis
 }
 export const deleteTodoThunk = (id:number):PostActionThunk=>async dispatch => {
         try {
-                const data:number= await fetchData(`/todos/${id}`,'DELETE')
+                const data:number= await fetchData(`/api/todos/${id}`,'DELETE')
                 return dispatch(deleteTodo(data));
         } catch (response) {
                 return   dispatch(handleError())               
@@ -50,7 +50,7 @@ export const deleteTodoThunk = (id:number):PostActionThunk=>async dispatch => {
 }
 export const setPriorityThunk = (id:number,priority:number):PostActionThunk=>async dispatch => {
         try {
-                const data= await fetchData(`/todos/${id}/priority/${priority}`,'PUT',{priority})                
+                const data= await fetchData(`/api/todos/${id}/priority/${priority}`,'PUT',{priority})                
                 return dispatch(setPriority(id,data));
         } catch (response) {
                 return   dispatch(handleError())               
@@ -59,7 +59,7 @@ export const setPriorityThunk = (id:number,priority:number):PostActionThunk=>asy
 }
 export const toggleAllThunk = (flag:boolean):PostActionThunk=>async dispatch => {
         try {
-                const data:boolean= await fetchData(`/todos/update/${!flag}`,'PUT');
+                const data:boolean= await fetchData(`/api/todos/update/${!flag}`,'PUT');
                 return dispatch(toggleAll(!data));
         } catch (response) {
                 return   dispatch(handleError())               
@@ -67,7 +67,7 @@ export const toggleAllThunk = (flag:boolean):PostActionThunk=>async dispatch => 
 }
 export const deleteCompletedThunk = ():PostActionThunk=>async dispatch => {
         try {
-                await fetchData(`/todos/status/true`,'DELETE')
+                await fetchData(`/api/todos/status/true`,'DELETE')
                 return dispatch(deleteCompleted());
         } catch (response) {
                 return   dispatch(handleError())               
@@ -77,7 +77,7 @@ export const deleteCompletedThunk = ():PostActionThunk=>async dispatch => {
 export const fetchTodos=():GetActionThunk=>async dispatch => {
         dispatch(requestToServer())
         try {
-                const data:IGet[]= await fetchData("/todos");
+                const data:IGet[]= await fetchData("/api/todos");
                 return dispatch(todosLoaded(data.map(g=>_transformTodo(g))));
         } catch (error) {
                 return   dispatch(handleError())               
