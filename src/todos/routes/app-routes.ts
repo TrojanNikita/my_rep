@@ -14,7 +14,7 @@ export const AppRoutes: AppRoute[] = [
         path: ALL,
         component: TodoListWithData,
         description: AllStatus,
-        exact: true
+        exact: false
     },
     {
         id:'2',

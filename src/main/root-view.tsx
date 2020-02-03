@@ -13,11 +13,11 @@ const RootView: React.FC<{}> = () => {
     <div className="app-main">
         <LeftMenu/>
         <Switch>
-          <Route exact path={`${path}todos`}>
+          <Route path={`${path}todos`}>
             <TodosApp/>
           </Route>
           
-          <Route exact path={`${path}gallery`} component={Gallery} />
+          <Route path={`${path}gallery`} component={Gallery} />
         </Switch>
     </div>
   );

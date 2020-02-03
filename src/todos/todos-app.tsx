@@ -5,6 +5,8 @@ import {hot} from 'react-hot-loader';
 import { Route, Switch } from "react-router-dom";
 import history from './constants/history';
 import { AppRoutes } from './routes/app-routes';
+import TodoListWithData from './../todos/containers/containers';
+
 
 //Типы
 import {AppRoute} from './types';
@@ -37,11 +39,11 @@ const TodosApp : React.FC= () => {
             <AddItem/>
             <Switch>
             { AppRoutes.map((route: AppRoute) => (
-                <Route  
-                    exact={route.exact} 
-                    path={`${path}${route.path}`} 
-                    component={route.component}
-                    key={route.path} />))
+              <Route  
+                  exact={route.exact} 
+                  path={`${path}${route.path}`} 
+                  component={route.component}
+                  key={route.path} />))
             }
             </Switch>
     </div>
@@ -49,3 +51,11 @@ const TodosApp : React.FC= () => {
 }
 
 export default TodosApp;
+
+// { AppRoutes.map((route: AppRoute) => (
+//   <Route  
+//       exact={route.exact} 
+//       path={`${path}${route.path}`} 
+//       component={route.component}
+//       key={route.path} />))
+// }

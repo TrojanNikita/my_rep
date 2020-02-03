@@ -10,7 +10,7 @@ const routes = (
       <AuthUserProvider>
         <Switch>
           <Route path="/auth" component={UnauthorizedLayout}/>
-          <AuthorizedRoute path="/" component={RootView}/>
+          <AuthorizedRoute  path="/" component={RootView}/>
           <Redirect to="/" />
         </Switch>
       </AuthUserProvider>
