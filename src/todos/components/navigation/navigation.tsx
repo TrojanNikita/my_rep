@@ -4,6 +4,7 @@ import { Link,  useLocation } from "react-router-dom";
 import { AppRoutes } from '../../routes/app-routes';
 
 import {AppRoute} from './../../types'
+import {useRouteMatch} from 'react-router-dom';
 
 
 
@@ -26,23 +27,30 @@ interface INavigation {
 
 const NavigationConnect:React.FC<INavigation>=({setStatus})=>{
 
-    let location = useLocation()
-
+    
+	const {path, url}=useRouteMatch();
+    console.log(path);
+    debugger
     const [activeLink, setActiveLink]=React.useState<AppRoute>(AppRoutes.find(
-        (route)=>(route.path===location.pathname))||AppRoutes[1]);
+        (route)=>(`todos${route.path}`===path))||AppRoutes[0]);
 
-        React.useEffect(
-        () => {
-            setStatus(activeLink.description)
-        },
-        [location,setStatus,activeLink]
-        )
-
+    // React.useEffect(
+    //     () => {
+    //         debugger
+    //         setStatus(activeLink.description)
+    //     },
+    //     []
+    // )
+//location,setStatus,activeLink
     const handleClick=React.useCallback(
         (route:AppRoute) =>()=> {
+            console.log(route)
+            debugger
             setActiveLink(route);
+            setStatus(route.description);
+            debugger
         },
-        [],
+        [setActiveLink,setStatus],
     )
     const linkClass='link btn ';
 
@@ -50,7 +58,7 @@ const NavigationConnect:React.FC<INavigation>=({setStatus})=>{
         <ul className='nav-bar row'>
             {AppRoutes.map((route: AppRoute) => (
             <li className="nav-li col" key={route.id} onClick={handleClick(route)}>
-                <Link   to={route.path} 
+                <Link   to={`${url}${route.path}`} 
                         className={
                             (route === activeLink ? 
                                 linkClass+"active" : linkClass)

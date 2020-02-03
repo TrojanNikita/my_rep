@@ -6,15 +6,15 @@ import UnauthorizedLayout from '../layouts/unauthorized-layout'
 import RootView from '../main/root-view';
 
 const routes = (
-  <div>
+  <React.Fragment>
       <AuthUserProvider>
         <Switch>
-          <Route path="/auth" component={UnauthorizedLayout} />
-          <AuthorizedRoute path="/" component={RootView} />
+          <Route path="/auth" component={UnauthorizedLayout}/>
+          <AuthorizedRoute path="/" component={RootView}/>
           <Redirect to="/" />
         </Switch>
       </AuthUserProvider>
-  </div>
+  </React.Fragment>
 );
 
 export default routes;

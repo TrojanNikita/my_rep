@@ -21,8 +21,9 @@ const TodoListWithData:React.FC<ListContainer> =({error,loading,data,fetchTodos}
 
 
     React.useEffect(() => {
+        debugger
         fetchTodos()
-      }, [fetchTodos])
+      }, [fetchTodos,data])
 
     if(loading){
         return <Spinner/> ;

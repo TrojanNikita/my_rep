@@ -21,14 +21,14 @@ export const AppRoutes: AppRoute[] = [
         path: ACTIVE,
         component: TodoListWithData,
         description: ActiveStatus,
-        exact: true
+        exact: false
     },
     {
         id:'3',
         path: DONE,
         component: TodoListWithData,
         description: DoneStatus,
-        exact: true
+        exact: false
     }
 ];
 

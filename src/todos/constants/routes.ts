@@ -1,3 +1,3 @@
-export const ALL = '/todos';
-export const ACTIVE = '/todos/active';
-export const DONE = '/todos/done';
+export const ALL = '';
+export const ACTIVE = '/active';
+export const DONE = '/done';

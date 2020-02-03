@@ -2,8 +2,8 @@ import { createSelector } from 'reselect';
 
 import {GlobalState} from '../types';
 
-import { NONE, SMALL, MIDLE, HIGH} from './../constants/filter-mode'
-import { ACTIVE, DONE} from './../constants/status'
+import { NONE, SMALL, MIDLE, HIGH} from './../constants/filter-mode';
+import { ACTIVE, DONE} from './../constants/status';
 export const getTodos = (state:GlobalState) => state.TodoReduce.todos;
 
 export const getError = (state:GlobalState) => state.TodoReduce.error;
@@ -21,7 +21,8 @@ export const getTodo=(state:GlobalState, id:number)=>state.TodoReduce.todos[id];
 export const getAllTodos = createSelector(
     [getTodos,getMode,getStatus, getFilterMode],
     (allTodos,mode,status,filter_mode) => {
-        
+        console.log(mode + status + filter_mode)
+        debugger
         let newArray=allTodos;
         if(mode==='Asc')
             newArray=[...newArray].sort((a,b)=>{            
@@ -31,7 +32,7 @@ export const getAllTodos = createSelector(
             newArray=[...newArray].sort((a,b)=>{            
                 return b.priority-a.priority;
         })
-            return   newArray.filter(({done})=>{
+            return newArray.filter(({done})=>{
                 if(status===ACTIVE)
                     return done===false;
                 else if(status===DONE)
