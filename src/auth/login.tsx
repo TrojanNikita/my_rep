@@ -41,10 +41,10 @@ const Login = () => {
   return (
       <div className='auth-form' style={{ minHeight: '10em' }}>
         <div className="auth-form__header">
-          <h1 className="heading-2">Welcome to Firebase, almost...</h1>
-          <p>
+          <h1 className="heading-2">Welcome ...</h1>
+          {/* <p>
             The username is <strong>react</strong> and the password is <strong>react</strong>
-          </p>
+          </p> */}
           {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
         </div>
         <form className="auth-form__content" onSubmit={handleSubmit}>
