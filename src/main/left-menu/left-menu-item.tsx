@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {MenuItem} from './left-menu-types';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useRouteMatch} from 'react-router-dom';
 
 interface Props {
 	item: MenuItem;
@@ -9,12 +9,13 @@ interface Props {
 const LeftMenuItem = ({item}: Props) => {
 
 	const history = useHistory();
-
+	const {url}=useRouteMatch();
+	console.log(url)
 	return (
 		<React.Fragment>
 			<button type="button"
 				className = "left-menu-item"
-				onClick = { () => history.push(item.path) }>
+				onClick = { () => history.push(`${url}${item.path}`) }>
 				<i className = {`left-menu-item__icon ${item.icon}`} />
 			</button>
 		</React.Fragment>

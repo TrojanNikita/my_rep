@@ -1,4 +1,4 @@
-import {RootState} from './../reducers'
+import {RootState} from './../../reducers'
 export * from './Route'
 export * from './StoreStructure'
 export type GlobalState=RootState

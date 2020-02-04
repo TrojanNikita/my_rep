@@ -5,7 +5,11 @@ export const  fetchData=async <T>(url:string, method:string="GET",param?:T) => {
     body: JSON.stringify(param),
     headers: {
       'Content-Type':'application/json',
+<<<<<<< HEAD
       "Authorization": "Bearer XXXXAPIKEYXXXXX"
+=======
+      'Accept': 'application/json',
+>>>>>>> d9b3535b99a57b2ee467d187c8bae5ba1b7f8a39
     }
   }).then(res=>{ 
         if (res.status >= 200 && res.status < 300) {  

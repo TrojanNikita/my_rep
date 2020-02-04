@@ -1,32 +1,39 @@
+
+
 import * as React from 'react';
 import * as ReactDOM from "react-dom";
 
 import {Provider} from 'react-redux';
-import { Switch, Route, Redirect } from 'react-router-dom'
-import Router from './utils/Router'
-import { AuthUserProvider } from './utils/AuthUser'
-import AuthorizedRoute from './utils/AuthorizedRoute'
-import UnauthorizedLayout from './layouts/unauthorized-layout'
-import configStore from './configStore';
+import configureStore, { history } from './configureStore';
+import App from './App';
 
 import './index.scss';
 
-import RootView from './main/root-view';
 
-const store = configStore();
+// const store = configStore();
 
-const App = () => (
-  <Provider store={store}>
-    <Router>
-      <AuthUserProvider>
-        <Switch>
-          <Route path="/auth" component={UnauthorizedLayout} />
-          <AuthorizedRoute path="/" component={RootView} />
-          <Redirect to="/" />
-        </Switch>
-      </AuthUserProvider>
-    </Router>
-  </Provider>
-);
+// const App = () => (
+//   <Provider store={store}>
+
+//   </Provider>
+// );
+
+const store = configureStore();
+const render = () => {
+  ReactDOM.render(
+      <Provider store={store}>
+        <App history={history} />
+      </Provider>,
+    document.getElementById('react-root')
+  )
+};
+
+render()
     
-ReactDOM.render(<App />, document.getElementById('app'));
+// // Hot reloading
+// if (module.hot) {
+//   // Reload components
+//   module.hot.accept('./App', () => {
+//     render()
+//   })
+// }

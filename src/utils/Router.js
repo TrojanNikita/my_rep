@@ -1,8 +1,10 @@
 import * as React from 'react'
-import { BrowserRouter, Route, Redirect } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 
-const Router = ({ children }) => (
-  <BrowserRouter>
+import { ConnectedRouter } from 'connected-react-router'
+
+const Router = ({ children, history }) => (
+  <ConnectedRouter history={history}>
     <Route
       render={({ location: { pathname, search, hash } }) =>
         pathname !== '/' && pathname.slice(-1) === '/' ? (
@@ -12,7 +14,7 @@ const Router = ({ children }) => (
         )
       }
     />
-  </BrowserRouter>
+  </ConnectedRouter>
 )
 
-export default Router
+export default Router;

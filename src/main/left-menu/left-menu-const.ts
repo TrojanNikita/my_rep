@@ -5,13 +5,13 @@ export const LeftMenuItems: MenuItem[] = [
     {
         id:'1',
         title:'Online',
-        path:'/todos',
+        path:'todos',
         icon:'fa fa-pencil'
     },
     {
         id:'2',
         title:'Offline',
-        path:'/',
+        path:'gallery',
         icon:'fa fa-trash-o'
     }
 ];
