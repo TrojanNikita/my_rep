@@ -13,7 +13,7 @@ const RootView: React.FC<{}> = () => {
     <div className="app-main">
         <LeftMenu/>
         <Switch>
-          <Route path={`${path}todos`}>
+          <Route path={`${path}todos(/active)?`}>
             <TodosApp/>
           </Route>
           

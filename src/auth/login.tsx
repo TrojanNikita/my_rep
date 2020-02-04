@@ -42,13 +42,9 @@ const Login = () => {
       <div className='auth-form' style={{ minHeight: '10em' }}>
         <div className="auth-form__header">
           <h1 className="heading-2">Welcome ...</h1>
-<<<<<<< HEAD
-          {/* <p>
-=======
           <p>
->>>>>>> d9b3535b99a57b2ee467d187c8bae5ba1b7f8a39
             The username is <strong>react</strong> and the password is <strong>react</strong>
-          </p> */}
+          </p>
           {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
         </div>
         <form className="auth-form__content" onSubmit={handleSubmit}>

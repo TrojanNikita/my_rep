@@ -55,17 +55,17 @@ const config = {
   devServer: {
     contentBase: './dist',
     historyApiFallback: true,
-<<<<<<< HEAD
-    proxy:{
-      "/api":{
-        target:"http://localhost:9000",
-        pathRewrite: {
-          "^/api": ""
-        }
-      }
-    }
-  }
-=======
+//<<<<<<< HEAD
+  //   proxy:{
+  //     "/api":{
+  //       target:"http://localhost:9000",
+  //       pathRewrite: {
+  //         "^/api": ""
+  //       }
+  //     }
+  //   }
+  // }
+//=======
     port: 3000,
     proxy: {
       '/api': {
@@ -74,7 +74,7 @@ const config = {
       }
     }
   },
->>>>>>> d9b3535b99a57b2ee467d187c8bae5ba1b7f8a39
+//>>>>>>> d9b3535b99a57b2ee467d187c8bae5ba1b7f8a39
 };
 
 module.exports = config;
