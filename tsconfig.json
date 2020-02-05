@@ -10,6 +10,7 @@
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "target": "es5",
+        "plugins": [{ "name": "typescript-plugin-css-modules" }],
         "allowJs": true,
         "jsx": "react",
     },

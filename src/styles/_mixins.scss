@@ -1,0 +1,26 @@
+@mixin visible-scrollbar {
+	&::-webkit-scrollbar {
+		width: 8px;
+		height: 8px;
+		border-radius: 6px;
+		background: rgba(0, 0, 0, 0.1);
+	}
+	
+	&::-webkit-scrollbar-thumb {
+		border-radius: 6px;
+		background: rgba(0, 0, 0, 0.3);
+	}
+}
+
+@mixin unvisible-scrollbar {
+	&::-webkit-scrollbar {
+		display: none;
+		width: 0;
+	}
+}
+
+@mixin overflow-ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

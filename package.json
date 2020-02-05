@@ -51,6 +51,7 @@
     "tslint": "^5.20.1",
     "typed-scss-modules": "^1.1.0",
     "typescript": "^3.7.4",
+    "typescript-plugin-css-modules": "^2.1.2",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"

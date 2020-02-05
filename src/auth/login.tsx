@@ -2,6 +2,9 @@ import * as React from 'react';
 // import Panel from '../ui/Panel'
 import { useAuthUser } from '../utils/AuthUser';
 import {useHistory} from 'react-router-dom';
+import Button from './../ui/Button';
+import Footer from './../ui/Footer';
+import InfoLine from './../ui/InfoLine';
 
 import './auth.scss';
 // Fake API Network Call
@@ -53,6 +56,26 @@ const Login = () => {
         </form>
       </div>
   );
+
+
+  // return (
+	// 	<main className={'auth-form'}>
+
+	// 		<InfoLine title="Требуется идентификация" />
+	// 		<Footer style={{ justifyContent: 'flex-end' }}>
+	// 			<Button
+	// 				kind="success"
+	// 				form="login-form"
+	// 				type="submit"
+	// 			>
+	// 				Идентифицировать
+	// 			</Button>
+	// 		</Footer>
+	// 	</main>
+	// );
+
+
+
 };
 
 export default Login;
