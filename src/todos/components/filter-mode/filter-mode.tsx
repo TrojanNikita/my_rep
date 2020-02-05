@@ -25,6 +25,7 @@ const FilterMode: React.FC<AppProps>=({setFilterMode, filter_mode})=>{
 
     const onBtnLeft=React.useCallback(
         ()=>{
+            debugger
             switch(filter_mode){
                 case ALL:
                 return setFilterMode(HIGH)
@@ -42,6 +43,7 @@ const FilterMode: React.FC<AppProps>=({setFilterMode, filter_mode})=>{
     )
     const onBtnRight=React.useCallback(
         ()=> {
+            debugger
             switch(filter_mode){
                 case ALL:
                 return setFilterMode(NONE)

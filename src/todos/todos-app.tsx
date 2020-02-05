@@ -5,7 +5,6 @@ import {hot} from 'react-hot-loader';
 import { Route, Switch } from "react-router-dom";
 import history from './constants/history';
 import { AppRoutes } from './routes/app-routes';
-import TodoListWithData from './../todos/containers/containers';
 
 
 //Типы
@@ -31,7 +30,7 @@ const TodosApp : React.FC= () => {
   let { path } = useRouteMatch();
   //AppRoutes.map((route: AppRoute) => (console.log(`${path}${route.path}`)));
   console.log(path)
-  debugger
+  
   return (
     <div className="app-form">
             <AppHeader/>

@@ -22,7 +22,7 @@ export const getAllTodos = createSelector(
     [getTodos,getMode,getStatus, getFilterMode],
     (allTodos,mode,status,filter_mode) => {
         console.log(mode + status + filter_mode)
-        debugger
+        
         let newArray=allTodos;
         if(mode==='Asc')
             newArray=[...newArray].sort((a,b)=>{            

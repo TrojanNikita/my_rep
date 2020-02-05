@@ -30,25 +30,23 @@ const NavigationConnect:React.FC<INavigation>=({setStatus})=>{
     
 	const {path, url}=useRouteMatch();
     console.log(path);
-    debugger
     const [activeLink, setActiveLink]=React.useState<AppRoute>(AppRoutes.find(
         (route)=>(`todos${route.path}`===path))||AppRoutes[0]);
 
-    // React.useEffect(
-    //     () => {
-    //         debugger
-    //         setStatus(activeLink.description)
-    //     },
-    //     []
-    // )
+    React.useEffect(
+        () => {
+            setStatus(activeLink.description)
+        },
+        [setStatus,activeLink,path]
+    )
 //location,setStatus,activeLink
     const handleClick=React.useCallback(
         (route:AppRoute) =>()=> {
             console.log(route)
-            debugger
+            
             setActiveLink(route);
-            setStatus(route.description);
-            debugger
+            setStatus(activeLink.description);
+            
         },
         [setActiveLink,setStatus],
     )

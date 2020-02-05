@@ -5,8 +5,7 @@ import Two from './two';
 
 const GalleryApp: React.FC<{}> = () => {
   let { path,url } = useRouteMatch();
-
-  debugger
+  
   return (
     <div className="app-main">
         <Link to={`${url}/1`}>One</Link>
