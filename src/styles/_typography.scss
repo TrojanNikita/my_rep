@@ -1,0 +1,168 @@
+@import 'vars';
+@import 'mixins';
+
+body {
+	font-family: $font-family;
+	color: $black;
+}
+
+h1 {
+	@include text($font-size-xx-large, $font-weight-normal, null, $line-height-normal);
+	margin: 0.67em 0;
+}
+
+h2 {
+	@include text($font-size-x-large, $font-weight-normal, null, calc(32/24));
+	margin: 0.83em 0;
+}
+
+h3 {
+	@include text($font-size-large, $font-weight-normal, null, calc(24/20));
+	margin: 1em 0;
+}
+
+h4 {
+	@include text($font-size-medium, $font-weight-bold, null, $line-height-extended);
+	margin: 1.33em 0;
+}
+
+h5 {
+	@include text($font-size-small, $font-weight-bold, null, calc(20/14));
+	margin: 0.83em 0;
+}
+
+h6 {
+	@include text($font-size-x-small, $font-weight-bold, null, calc(20/12));
+	text-transform: uppercase;
+	margin: 2.33em 0;
+}
+
+.text {
+	@include text();
+
+	transition: color .3s;
+
+	// weight
+	&--bold {
+		font-weight: $font-weight-bold;
+	}
+
+	// ellipsis
+	&--ellipsis {
+		@extend %overflow_ellipsis;
+	}
+
+	// Size
+	&--xx-small { // 10px
+		font-size: $font-size-xx-small;
+	}
+	&--x-small { // 12px
+		font-size: $font-size-x-small;
+	}
+	&--small { // 14px
+		font-size: $font-size-small;
+	}
+	&--medium { // 16px
+		font-size: $font-size-medium;
+	}
+	&--large { // 20px
+		font-size: $font-size-large;
+	}
+	&--x-large { // 24px
+		font-size: $font-size-x-large;
+	}
+	&--xx-large { // 32px
+		font-size: $font-size-xx-large;
+	}
+
+	// line-hieght
+	&--line-height_extended {
+		line-height: $line-height-extended;
+	}
+	&--line-height_normal {
+		line-height: $line-height-normal;
+	}
+	&--line-height_decreased {
+		line-height: $line-height-decreased;
+	}
+
+	// aligns
+	&--align_center {
+		text-align: center;
+	}
+	&--align-right {
+		text-align: right;
+	}
+
+	// Colors
+	&--white {
+		color: $white;
+	}
+	&--lightgray {
+		color: $lightgray;
+	}
+	&--gray {
+		color: $gray;
+	}
+	&--gray600 {
+		color: $gray600;
+	}
+	&--gray700 {
+		color: $gray700;
+	}
+	&--gray900 {
+		color: $gray900;
+	}
+	&--darkgray {
+		color: $darkgray;
+	}
+	&--materialgray {
+		color: $gray700;
+	}
+	&--defaultblue {
+		color: $defaultblue;
+	}
+	&--blue {
+		color: $blue;
+	}
+	&--orange {
+		color: $orange600 !important;
+	}
+	&--red {
+		color: $red600 !important;
+	}
+	&--green {
+		color: $green !important;
+	}
+	&--black {
+		color: $black !important;
+	}
+
+	// Transform
+	&--uppercase {
+		text-transform: uppercase;
+	}
+
+	// Capitalize like this.
+	// Not Like This.
+	&--capitalize::first-letter {
+		text-transform: capitalize;
+	}
+
+	&--flex {
+		display: flex;
+	}
+}
+
+.hr {
+	display: block;
+	height: 1px;
+	width: 100%;
+	background-color: $default-border;
+	border: 0;
+	margin: 20px 0;
+	padding: 0;
+	&--margin_10px {
+		margin: 10px 0;
+	}
+}

@@ -1,0 +1,287 @@
+$red: #e64c3b;
+$darkred: #bf382b;
+$lightred: #E64938;
+$lightlightred: #ffaea5;
+$bittersweet: #FF6666;
+$hotpink: #FF6699;
+$snow: #FFF4F4;
+$red25: #FFF2F4;
+$red50: #FFEBEE;
+$red100: #FFCDD2;
+$red500: #f44336;
+$red600: #e53935;
+
+$orange: #f93;
+$orange25: #FFF8EC;
+$orange50: #FDFBE4;
+$orange100: #FFE0B2;
+$orange500: #ff9800;
+$orange600: #FB8C00;
+$orange700: #F57C00;
+$orange800: #EF6C00;
+$lightyellow: #fff4c9;
+$yellow: #fee65a;
+$neoncarrot: #FF9933;
+$sunglow: #FFCC33;
+
+$lightgreen: #96cb36;
+$darkgreen: #6e9922;
+$darklimegreen: #07a900;
+$jade: #00CC66;
+$hintofgreen: #dcecca;
+$green: #22ae69;
+$green25: #F1F9F2;
+$green50: #E8F5E9;
+$green100: #C8E6C9;
+$green500: #4caf50;
+$green600: #43A047;
+
+$black: #000;
+$white: #fff;
+
+$defaultblue: #4378a4;
+$blue: #0059CA;
+$lightblue: #4a90e2;
+$lightlightblue: #dbe9f9;
+$darkblue: #003D89;
+$darkdarkblue: #00275D;
+$deepskyblue: deepskyblue;
+$azureradiance: #0099FF;
+$sail: #a3caf7;
+$itemBgActiveColor: #007ac2;
+$blue50: #E3F2FD;
+$blue500: #2196F3;
+$blue600: #1e88e5;
+$blue700: #1976D2;
+$blue800: #3A6F9B;
+
+$lightlightgray: #F5F5F5;
+$lightgray: #CCCCCC;
+$gray: #9b9b9b;
+$deepgray: #999999;
+$darkgray: #707070;
+
+$gray50: #FAFAFA;
+$gray100: #F5F5F5;
+$gray200: #EEEEEE;
+$gray300: #e0e0e0;
+$gray400: #BDBDBD;
+$gray500: #9E9E9E;
+$gray600: #757575;
+$gray700: #616161;
+$gray800: #424242;
+$gray900: #212121;
+$dimgray: #C4C4C4;
+
+$lightpurple: #d1c4e9;
+$purple: #673ab7;
+$purple500: #9C27B0;
+$purple600: #5E35B1;
+
+$default-border: $gray300;
+$default-subtext: $gray;
+
+$darkaqua: #00CCCC;
+
+$brown500: #795548;
+
+// Repertory
+// --------------------------------------------------
+// text 1
+// bg   3
+// key  2
+// -------hover
+// text      white
+// bg-hover  2
+// key-hover 1
+//------------------------approved
+$rp-approved-1: #005017;
+$rp-approved-2: #00A730;
+$rp-approved-3: #C9ECD2;
+//------------------------approved_by_distributor
+$rp-approved_by_distributor-1: #263238;
+$rp-approved_by_distributor-2: #607D8B;
+$rp-approved_by_distributor-3: #CFD8DC;
+//------------------------planned
+$rp-planned-1: #004077;
+$rp-planned-2: #0087DB;
+$rp-planned-3: #C9E6F7;
+//------------------------discuss
+$rp-discuss-1: #67004E;
+$rp-discuss-2: #CA00A3;
+$rp-discuss-3: #F4C9EC;
+//------------------------process
+$rp-process-1: #B02200;
+$rp-process-2: #FF6900;
+$rp-process-3: #FFDFC9;
+//------------------------error
+$rp-error-1: #850010;
+$rp-error-2: #E70022;
+$rp-error-3: #F9C9D0;
+
+// tariff-colors
+// --------------------------------------------------
+
+$tariff-optima: #59a500;
+$tariff-profy: #0054b7;
+
+// button colors
+// Default button
+$btn-default-color:         $defaultblue;
+$btn-default-bg:            #f5f7fa;
+$btn-default-hover-bg:      #eaf0f8;
+$btn-default-border:        #94bcdd;
+$btn-default-height:        30px;
+
+// Primary button
+$btn-primary-color:         #fff;
+$btn-primary-bg:            $defaultblue;
+$btn-primary-hover-bg:      #286090;
+$btn-primary-border:        #386489;
+
+// Button with errors
+$btn-has-error-color:    #d0101a;
+$btn-has-error-bg:       #fff1f1;
+$btn-has-error-hover-bg: darken(#fff1f1, 4%);
+$btn-has-error-border:   #cbcbcb;
+
+// Disabled button
+$btn-disabled-color:       #9d9da1;
+$btn-disabled-bg:          #e8e8e8;
+$btn-disabled-border:      #e8e8e8;
+
+// Table styles
+// --------------------------------------------------
+
+/* Default */
+$table-default-header-bg:    #eaeef2;
+$table-default-row-odd-bg:   #f6f8fd;
+$table-default-header-color: $gray;
+
+/* Primary */
+$table-primary-header-bg:    $lightlightgray;
+$table-primary-row-odd-bg:   #f7f7f7;
+$table-primary-header-color: $black;
+
+/* Secondary */
+$table-secondary-header-bg:    $white;
+$table-secondary-row-odd-bg:   #f7f7f7;
+$table-secondary-header-color: $black;
+
+:export {
+	red: $red;
+	darkred: $darkred;
+	lightred: $lightred;
+	lightlightred: $lightlightred;
+	bittersweet: $bittersweet;
+	hotpink: $hotpink;
+	snow: $snow;
+	red25: $red25;
+	red50: $red50;
+	red100: $red100;
+	red500: $red500;
+	red600: $red600;
+	orange: $orange;
+	orange25: $orange25;
+	orange50: $orange50;
+	orange100: $orange100;
+	orange500: $orange500;
+	orange600: $orange600;
+	orange700: $orange700;
+	orange800: $orange800;
+	lightyellow: $lightyellow;
+	yellow: $yellow;
+	neoncarrot: $neoncarrot;
+	sunglow: $sunglow;
+	lightgreen: $lightgreen;
+	darkgreen: $darkgreen;
+	darklimegreen: $darklimegreen;
+	jade: $jade;
+	hintofgreen: $hintofgreen;
+	green: $green;
+	green25: $green25;
+	green50: $green50;
+	green100: $green100;
+	green500: $green500;
+	green600: $green600;
+	black: $black;
+	white: $white;
+	defaultblue: $defaultblue;
+	blue: $blue;
+	lightblue: $lightblue;
+	lightlightblue: $lightlightblue;
+	darkblue: $darkblue;
+	darkdarkblue: $darkdarkblue;
+	deepskyblue: $deepskyblue;
+	azureradiance: $azureradiance;
+	sail: $sail;
+	itemBgActiveColor: $itemBgActiveColor;
+	blue50: $blue50;
+	blue500: $blue500;
+	blue600: $blue600;
+	blue700: $blue700;
+	blue800: $blue800;
+	lightlightgray: $lightlightgray;
+	lightgray: $lightgray;
+	gray: $gray;
+	deepgray: $deepgray;
+	darkgray: $darkgray;
+	gray50: $gray50;
+	gray100: $gray100;
+	gray200: $gray200;
+	gray300: $gray300;
+	gray400: $gray400;
+	gray500: $gray500;
+	gray600: $gray600;
+	gray800: $gray800;
+	gray900: $gray900;
+	gray700: $gray700;
+	dimgray: $dimgray;
+	lightpurple: $lightpurple;
+	purple: $purple;
+	purple500: $purple500;
+	purple600: $purple600;
+	defaultBorder: $default-border;
+	darkaqua: $darkaqua;
+	brown500: $brown500;
+	rpApproved1: $rp-approved-1;
+	rpApproved2: $rp-approved-2;
+	rpApproved3: $rp-approved-3;
+	rpApproved_by_distributor1: $rp-approved_by_distributor-1;
+	rpApproved_by_distributor2: $rp-approved_by_distributor-2;
+	rpApproved_by_distributor3: $rp-approved_by_distributor-3;
+	rpPlanned1: $rp-planned-1;
+	rpPlanned2: $rp-planned-2;
+	rpPlanned3: $rp-planned-3;
+	rpDiscuss1: $rp-discuss-1;
+	rpDiscuss2: $rp-discuss-2;
+	rpDiscuss3: $rp-discuss-3;
+	rpProcess1: $rp-process-1;
+	rpProcess2: $rp-process-2;
+	rpProcess3: $rp-process-3;
+	rpError1: $rp-error-1;
+	rpError2: $rp-error-2;
+	rpError3: $rp-error-3;
+	tariffOptima: $tariff-optima;
+	tariffProfy: $tariff-profy;
+	btnDefaultBg: $btn-default-bg;
+	btnDefaultHoverBg: $btn-default-hover-bg;
+	btnDefaultBorder: $btn-default-border;
+	btnDefaultHeight: $btn-default-height;
+	btnPrimaryColor: $btn-primary-color;
+	btnPrimaryHoverBg: $btn-primary-hover-bg;
+	btnPrimaryBorder: $btn-primary-border;
+	btnHasErrorColor: $btn-has-error-color;
+	btnHasErrorBg: $btn-has-error-bg;
+	btnHasErrorHoverBg: $btn-has-error-hover-bg;
+	btnHasErrorBorder: $btn-has-error-border;
+	btnDisabledColor: $btn-disabled-color;
+	btnDisabledBg: $btn-disabled-bg;
+	btnDisabledBorder: $btn-disabled-border;
+	tableDefaultHeaderBg: $table-default-header-bg;
+	tableDefaultRowOddBg: $table-default-header-color;
+	tableDefaultHeaderColor: $table-default-header-color;
+	tableSecondaryHeaderBg: $table-secondary-header-bg;
+	tableSecondaryRowOddBg: $table-secondary-row-odd-bg;
+	tableSecondaryHeaderColor: $table-secondary-header-color;
+}

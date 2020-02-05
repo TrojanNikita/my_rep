@@ -13,6 +13,7 @@
     "start": "webpack-dev-server --hot --mode development"
   },
   "dependencies": {
+    "@types/classnames": "^2.2.9",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-hot-loader": "^4.12.18"
@@ -35,6 +36,7 @@
     "classnames": "^2.2.6",
     "connected-react-router": "^6.6.1",
     "css-loader": "^3.4.2",
+    "file-loader": "^5.0.2",
     "history": "^4.10.1",
     "js-cookie": "^2.2.1",
     "node-sass": "^4.13.0",
@@ -43,9 +45,11 @@
     "react-router-redux": "^4.0.8",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "sass-loader": "^8.0.1",
+    "sass-loader": "^8.0.2",
     "style-loader": "^1.1.2",
+    "svg-url-loader": "^3.0.3",
     "tslint": "^5.20.1",
+    "typed-scss-modules": "^1.1.0",
     "typescript": "^3.7.4",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",

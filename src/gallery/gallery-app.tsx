@@ -11,7 +11,7 @@ const GalleryApp: React.FC<{}> = () => {
         <Link to={`${url}/1`}>One</Link>
         <Link to={`${url}/2`}>Two</Link>
         <Switch>
-          <Route path={`${path}/1`} component={One}/>          
+          <Route exact path={`${path}/1`} component={One}/>          
           <Route path={`${path}/2`} component={Two} />
         </Switch>
     </div>

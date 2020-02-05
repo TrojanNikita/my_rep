@@ -9,7 +9,7 @@ import {fetchTodos} from './../actions/actionTodo';
 import {ActionTypeTodo} from './../types/Action';
 import TodoList from '../components/todo-list';
 import ErrorIndicator from './../components/error/error-indicator';
-import Spinner from './../components/spinner/spinner';
+import Loader from './../../ui/Loader';
 
 type ListContainer=ReturnType<typeof mapStateToProps>&
 {
@@ -25,7 +25,7 @@ const TodoListWithData:React.FC<ListContainer> =({error,loading,data,fetchTodos}
       }, [fetchTodos])
 
     if(loading){
-        return <Spinner/> ;
+        return <Loader/> ;
     }
      if(error){
         return <ErrorIndicator/>;

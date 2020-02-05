@@ -5,6 +5,9 @@ import AuthorizedRoute from '../utils/AuthorizedRoute'
 import UnauthorizedLayout from '../layouts/unauthorized-layout'
 import RootView from '../main/root-view';
 
+
+//root routes and redirect on auth
+
 const routes = (
   <React.Fragment>
       <AuthUserProvider>

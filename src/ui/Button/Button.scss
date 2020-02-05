@@ -1,0 +1,55 @@
+.button {
+	height: var(--big-touchable-element-height);
+	padding: 0 1.125em;
+	border: none;
+	font-size: var(--x-large-font-size);
+	border-radius: var(--default-border-radius);
+	outline: var(--default-outline);
+	transition-property: opacity;
+	transition-duration: 0.2s;
+	transition-delay: 0.2s;
+
+	& * {
+		pointer-events: none;
+	}
+	&:active {
+		box-shadow: none;
+	}
+	&:disabled {
+		pointer-events: none;
+		border: var(--bold-stroke-width) solid var(--standard-button-stroke);
+		opacity: 0.6;
+	}
+	&-kind {
+		&_default-on-navigation {
+			color: var(--on-standard-button);
+			background: var(--on-navigation-background-standard-button);
+			border: var(--bold-stroke-width) solid var(--standard-button-stroke);
+			border-radius: var(--big-border-radius);
+		}
+		&_default-on-background {
+			color: var(--on-standard-button);
+			background: var(--on-standard-background-standard-button);
+			border: var(--bold-stroke-width) solid var(--standard-button-stroke);
+			border-radius: var(--big-border-radius);
+		}
+		&_success {
+			color: var(--on-standard-button);
+			background: var(--on-standard-background-standard-button);
+			border: var(--bold-stroke-width) solid var(--primary-button-stroke);
+			border-radius: var(--big-border-radius);
+		}
+		&_danger {
+			color: var(--on-standard-button);
+			background: var(--danger-button);
+			border: var(--bold-stroke-width) solid var(--danger-button-stroke);
+			border-radius: var(--big-border-radius);
+		}
+		&_keyboard {
+			background: var(--on-navigation-background-standard-button);
+			color: var(--on-standard-button);
+			border: var(--bold-stroke-width) solid var(--standard-button-stroke);
+			border-radius: var(--big-border-radius);
+		}
+	}
+}

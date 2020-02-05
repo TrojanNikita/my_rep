@@ -1,0 +1,78 @@
+@import 'colors';
+
+$kinoplanDefaultPanelHeight: 50px;
+
+// typography
+// --------------------------------------------------
+$font-family: Arial, Helvetica, sans-serif;
+$font-weight-normal: normal;
+$font-weight-bold: bold;
+
+$font-size-xx-small: 0.625rem; // 10px
+$font-size-x-small: 0.75rem; // 12px
+$font-size-small: 0.875rem; // 14px
+$font-size-medium: 1rem; // 16px
+$font-size-large: 1.25rem; // 20px
+$font-size-x-large: 1.5rem; // 24px
+$font-size-xx-large: 2rem; // 32px
+
+// typography line-height
+$line-height-normal:    $font-size-large   / $font-size-medium;
+$line-height-extended:  $font-size-x-large / $font-size-medium;
+$line-height-decreased: 1;
+
+
+// sprites
+// --------------------------------------------------
+$sprite: url(./../images/sprite.png);
+$sprite_svg: url(./../images/sprite.svg);
+
+
+// Base styles
+// --------------------------------------------------
+
+$font-size-base:            14px;
+$line-height-base:          28px;
+
+$padding-base-vertical:     0;
+$padding-base-horizontal:   10px;
+
+$border-radius-base:        4px;
+
+$cursor-disabled: not-allowed !default;
+
+/* Buttons */
+$btn-font-weight: normal;
+
+// Button sizes
+
+$btn-xx-small-lineheight: 16px;
+$btn-xx-small-horizontal-padding: 6px;
+
+$btn-x-small-lineheight: 22px;
+$btn-x-small-horizontal-padding: 8px;
+
+$btn-small-lineheight: 28px;
+$btn-small-horizontal-padding: 10px;
+
+$btn-medium-lineheight: 30px;
+$btn-medium-horizontal-padding: 12px;
+
+$btn-large-lineheight: 34px;
+$btn-large-horizontal-padding: 14px;
+
+$btn-x-large-lineheight: 38px;
+$btn-x-large-horizontal-padding: 16px;
+
+$btn-xx-large-lineheight: 42px;
+$btn-xx-large-horizontal-padding: 18px;
+
+/* Inputs */
+$input-disabled-bg: #ebebeb;
+
+/* Links */
+$link-color: $defaultblue;
+$link-hover-color: #e64c3b;
+
+/* Pathes */
+$fontPath: '../fonts/';

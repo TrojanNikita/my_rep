@@ -5,15 +5,18 @@ import routes from './routes'
 import Router from './utils/Router';
 import { ConnectedRouter } from 'connected-react-router';
 
-interface AppProps {
-  history: History;
-};
+import {Provider} from 'react-redux';
+import configureStore, { history } from './configureStore';
 
-const App = ({ history }: AppProps) => {
+const store = configureStore();
+
+const App = () => {
   return (
-    <ConnectedRouter history={history}>
-      { routes }
-    </ConnectedRouter>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        { routes }
+      </ConnectedRouter>
+    </Provider>
   )
 };
 

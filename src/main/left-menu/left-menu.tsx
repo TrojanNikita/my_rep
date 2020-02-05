@@ -1,8 +1,8 @@
 import * as React from 'react';
 import LeftMenuItem from './left-menu-item';
-import {MenuItem} from './left-menu-types';
 import {LeftMenuItems} from './left-menu-const';
 
+//import './left-menu.scss';
 
 const LeftMenu= () => {
 
@@ -15,11 +15,11 @@ const LeftMenu= () => {
   });
 
   return (
-    <React.Fragment>
+    <div>
       <ul className="left-menu">
         { elements }
       </ul>
-    </React.Fragment>
+    </div>
   );
 };
 
