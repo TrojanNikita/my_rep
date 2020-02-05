@@ -1,4 +1,6 @@
-
+Cache/
+rapid_render.json
+storage.json
 .cache/
 coverage/
 dist/bundle.js

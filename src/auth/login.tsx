@@ -41,38 +41,38 @@ const Login = () => {
     //   })
   }
 
-  return (
-      <div className='auth-form' style={{ minHeight: '10em' }}>
-        <div className="auth-form__header">
-          <h1 className="heading-2">Welcome ...</h1>
-          {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-        </div>
-        <form className="auth-form__content" onSubmit={handleSubmit}>
-          <input type="text" className='auth-form__content__username' placeholder="Username" required />
-          <input type="password" className='auth-form__content__password' placeholder="Password" required />
-          <button type="submit" className="btn btn-dark btn-sm form-login-btn">
-            Login
-          </button>
-        </form>
-      </div>
-  );
-
-
   // return (
-	// 	<main className={'auth-form'}>
+  //     <div className='auth-form' style={{ minHeight: '10em' }}>
+  //       <div className="auth-form__header">
+  //         <h1 className="heading-2">Welcome ...</h1>
+  //         {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+  //       </div>
+  //       <form className="auth-form__content" onSubmit={handleSubmit}>
+  //         <input type="text" className='auth-form__content__username' placeholder="Username" required />
+  //         <input type="password" className='auth-form__content__password' placeholder="Password" required />
+  //         <button type="submit" className="btn btn-dark btn-sm form-login-btn">
+  //           Login
+  //         </button>
+  //       </form>
+  //     </div>
+  // );
 
-	// 		<InfoLine title="Требуется идентификация" />
-	// 		<Footer style={{ justifyContent: 'flex-end' }}>
-	// 			<Button
-	// 				kind="success"
-	// 				form="login-form"
-	// 				type="submit"
-	// 			>
-	// 				Идентифицировать
-	// 			</Button>
-	// 		</Footer>
-	// 	</main>
-	// );
+
+  return (
+		<main className={'auth-form'}>
+
+			<InfoLine title="Требуется идентификация" />
+			<Footer style={{ justifyContent: 'flex-end' }}>
+				<Button
+					kind="secondary"
+					form="auth-form"
+					type="submit"
+				>
+					Идентифицировать
+				</Button>
+			</Footer>
+		</main>
+	);
 
 
 

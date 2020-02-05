@@ -13,28 +13,14 @@ const InfoLine = React.memo(({
 	children, className, onBackClick,
 	title, subtitle,
 }: infoLinePropsType) => {
-    console.log(styles.infoLineTitle);
+    console.log(styles);
     return(
 	<div
 		className={cn(className, styles.infoLine, {
-			[styles.infoLineWithBackButton]: onBackClick,
+			[styles.infoLineTitle]: onBackClick,
 		})}
 	>
-		{onBackClick && (
-			<button
-				type="button"
-				onClick={onBackClick}
-				className={styles.infoLineBackButton}
-			>
-				<BackButton />
-			</button>
-		)}
-		{Boolean(title) && (
-			<h1 className={styles.infoLineTitle}>{title}</h1>
-		)}
-		{Boolean(subtitle) && (
-			<div className={styles.infoLineSubtitle}>{subtitle}</div>
-		)}
+		<p className={styles.infoLineTitle}>{title}</p>
 		{children}
 	</div>
 )});
