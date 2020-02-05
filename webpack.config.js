@@ -70,7 +70,7 @@ const config = {
     proxy: {
       '/api': {
         target: 'http://localhost:9000',
-        pathRewrite: {'^/api' : ''}
+        pathRewrite: {"^/api": ""}
       }
     }
   },

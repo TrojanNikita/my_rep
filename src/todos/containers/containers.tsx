@@ -21,7 +21,6 @@ const TodoListWithData:React.FC<ListContainer> =({error,loading,data,fetchTodos}
 
 
     React.useEffect(() => {
-        debugger
         fetchTodos()
       }, [fetchTodos])
 
