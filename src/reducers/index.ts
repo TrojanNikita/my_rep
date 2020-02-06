@@ -9,6 +9,7 @@ import {ModeStatusReducer} from '../todos/reducers/status-mode-reducer';
 //typeof reducers
 import { StoreStructure } from '../todos/types';
 import  {ModeStatus}  from '../todos/types';
+import {AuthModel} from '../auth/models/AuthModel';
 
 //generate root reducer
 
@@ -19,6 +20,7 @@ export const rootReducer = (history: History) => combineReducers({
 });
 
 export interface RootState {
+    
   TodoReduce: StoreStructure;
   ModeStatusReducer:ModeStatus;
   router: RouterState;
