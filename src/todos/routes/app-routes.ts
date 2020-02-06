@@ -1,11 +1,6 @@
 import { ALL,ACTIVE,DONE } from '../constants/routes';
 import TodoListWithData from '../containers/containers';
 import {AppRoute} from './../types';
-
-//import AuthPopup from '../authentication/auth-popup';
-
-import {START, IN} from './../constants/auth';
-
 import {ALL as AllStatus,DONE as DoneStatus,ACTIVE as ActiveStatus} from './../constants/status';
 
 export const AppRoutes: AppRoute[] = [
@@ -31,12 +26,3 @@ export const AppRoutes: AppRoute[] = [
         exact: false
     }
 ];
-
-// ,
-//     {
-//         id:'4',
-//         path: START,
-//         component: AuthPopup,
-//         description: IN,
-//         exact: true
-//     }

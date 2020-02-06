@@ -1,10 +1,10 @@
 import * as React from 'react';
 // import Panel from '../ui/Panel'
-import { useAuthUser } from '../utils/AuthUser';
+import { useAuthUser } from '../../utils/AuthUser';
 import {useHistory} from 'react-router-dom';
-import Button from './../ui/Button';
-import Footer from './../ui/Footer';
-import InfoLine from './../ui/InfoLine';
+import Button from '../../ui/Button';
+import Footer from '../../ui/Footer';
+import InfoLine from '../../ui/InfoLine';
 
 import './auth.scss';
 // Fake API Network Call
