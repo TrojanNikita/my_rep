@@ -4,26 +4,28 @@ import { History } from 'history';
 import { RouterState, connectRouter } from 'connected-react-router';
 
 //reducers
-import {TodoReduce} from '../todos/reducers/todo-reduce';
+import {TodoReducer} from '../todos/reducers/todo-reduce';
 import {ModeStatusReducer} from '../todos/reducers/status-mode-reducer';
+import {AuthReducer} from '../auth/reducers/auth-reducer';
 //typeof reducers
-import { StoreStructure } from '../todos/types';
-import  {ModeStatus}  from '../todos/types';
-import {AuthModel} from '../auth/models/AuthModel';
+import { ITodosState } from '../todos/types';
+import  {IModeStatusState}  from '../todos/types';
+import {IAuthState} from '../auth/models/IAuthState';
 
 //generate root reducer
 
 export const rootReducer = (history: History) => combineReducers({
-  router: connectRouter(history),
-  TodoReduce,
-  ModeStatusReducer
+    router: connectRouter(history),
+    todos: TodoReducer,
+    modeStatus: ModeStatusReducer,
+    auth: AuthReducer
 });
 
 export interface RootState {
-    
-  TodoReduce: StoreStructure;
-  ModeStatusReducer:ModeStatus;
-  router: RouterState;
+    todos: ITodosState;
+    modeStatus:IModeStatusState;
+    router: RouterState;
+    auth: IAuthState;
 }
 
 

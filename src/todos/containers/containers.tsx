@@ -16,7 +16,6 @@ type ListContainer=ReturnType<typeof mapStateToProps>&
     fetchTodos:() => Promise<ActionTypeTodo>;
 };
 
-
 const TodoListWithData:React.FC<ListContainer> =({error,loading,data,fetchTodos}) => {
 
 
@@ -33,16 +32,11 @@ const TodoListWithData:React.FC<ListContainer> =({error,loading,data,fetchTodos}
      return  <TodoList data={data}/>;
 }; 
 
-
-
-
-
-
 const mapStateToProps=(state:GlobalState) => (
 {
         data:getAllTodos(state),
-        error:state.TodoReduce.error,
-        loading:state.TodoReduce.loading
+        error:state.todos.error,
+        loading:state.todos.loading
 });
 const mapDispatchToProps = {fetchTodos};
 

@@ -4,21 +4,21 @@ import {TODOS_LOADED,SET_PRIORITY,
   TOGGLE_TODO,
   ERROR,
   LOAD} from '../constants/actions';
-import  {StoreStructure}  from '../types';
+import  {ITodosState}  from '../types';
 import {ActionTypeTodo} from '../types/Action'
 
 
 
-const initState: StoreStructure = {
+const initState: ITodosState = {
     todos: [],
     error:false,
     loading:false
 };
 
 
-export function TodoReduce (
+export function TodoReducer (
   state=initState, 
-  action: ActionTypeTodo): StoreStructure {
+  action: ActionTypeTodo): ITodosState {
     switch (action.type) {
 
       case TODOS_LOADED:
@@ -104,4 +104,4 @@ export function TodoReduce (
       }
 }
 
-export default TodoReduce;
+export default TodoReducer;

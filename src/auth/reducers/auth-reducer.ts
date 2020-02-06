@@ -1,34 +1,32 @@
 import {CHANGE_USERNAME, CHANGE_PASSWORD} from '../constants/actions';
-  import  {AuthModel}  from '../models/AuthModel';
-  import {ActionTypeTodo} from '../types/Action'
+import  {IAuthState}  from '../models/IAuthState';
+import {ActionAuth} from '../models/Actions';
   
   
+
+const initState: IAuthState = {
+    username:'',
+    password:''
+};
   
-  const initState: AuthModel = {
-      username:'',
-      password:''
-  };
   
-  
-  export function TodoReduce (
+export function AuthReducer (
     state=initState, 
-    action: ActionTypeTodo): AuthModel {
-      switch (action.type) {
-  
+    action: ActionAuth): IAuthState {
+    switch (action.type) {
         case CHANGE_USERNAME:
-          return{
-            ...state,
-            username:action.pay
-          }
+            return {
+                ...state,
+                username:action.payload
+            }
         case CHANGE_PASSWORD:
-          return{
-            ...state,
-            loading:false,
-            error:true
-          } 
-          default:
+            return {
+                ...state,
+                password:action.payload
+            } 
+        default:
             return state
-        }
-  }
+    }
+}
   
-  export default TodoReduce;
+  export default AuthReducer;

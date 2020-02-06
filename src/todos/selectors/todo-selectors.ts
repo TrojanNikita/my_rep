@@ -4,19 +4,19 @@ import {GlobalState} from '../types';
 
 import { NONE, SMALL, MIDLE, HIGH} from './../constants/filter-mode';
 import { ACTIVE, DONE} from './../constants/status';
-export const getTodos = (state:GlobalState) => state.TodoReduce.todos;
+export const getTodos = (state:GlobalState) => state.todos.todos;
 
-export const getError = (state:GlobalState) => state.TodoReduce.error;
-export const getLoad = (state:GlobalState) => state.TodoReduce.loading;
+export const getError = (state:GlobalState) => state.todos.error;
+export const getLoad = (state:GlobalState) => state.todos.loading;
 
-export const getMode = (state:GlobalState) => state.ModeStatusReducer.mode;
-export const getFilterMode = (state:GlobalState) => state.ModeStatusReducer.filter_mode;
-export const getStatus = (state:GlobalState) => state.ModeStatusReducer.status;
-
-
+export const getMode = (state:GlobalState) => state.modeStatus.mode;
+export const getFilterMode = (state:GlobalState) => state.modeStatus.filter_mode;
+export const getStatus = (state:GlobalState) => state.modeStatus.status;
 
 
-export const getTodo=(state:GlobalState, id:number)=>state.TodoReduce.todos[id];
+
+
+export const getTodo=(state:GlobalState, id:number)=>state.todos.todos[id];
 
 export const getAllTodos = createSelector(
     [getTodos,getMode,getStatus, getFilterMode],

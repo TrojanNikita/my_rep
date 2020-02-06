@@ -1,6 +1,6 @@
 import  {Todo}  from ".";
 
-export interface StoreStructure {
+export interface ITodosState {
     todos: Todo[];
     error:boolean;
     loading:boolean;

@@ -1,11 +1,8 @@
 import * as React from 'react'
 
-import Login from './../components/login';
+import Signup from './../components/signup';
 
-const SignupContainer:React.FC =() => {
-
-     return  <Login/>;
-}; 
+const SignupContainer:React.FC =() => (<Signup/>);
 
 
 

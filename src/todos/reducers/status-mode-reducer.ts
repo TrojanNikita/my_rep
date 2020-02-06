@@ -1,5 +1,5 @@
 import {SET_STATUS,SET_MODE,SET_FILTERMODE} from '../constants/actions';
-import  {ModeStatus}  from '../types';
+import  {IModeStatusState}  from '../types';
 import {ActionTypeStatusMode} from './../actions/actionStatusMode'
 
 import {ALL} from './../constants/status'
@@ -12,7 +12,7 @@ import {ALL as filter_ALL} from './../constants/filter-mode'
 
 
 
-const initState: ModeStatus = {
+const initState: IModeStatusState = {
     mode:NONE,
     status:ALL,
     filter_mode:filter_ALL
@@ -21,7 +21,7 @@ const initState: ModeStatus = {
 
 export function ModeStatusReducer (
   state=initState, 
-  action: ActionTypeStatusMode): ModeStatus {
+  action: ActionTypeStatusMode): IModeStatusState {
     switch (action.type) {
         case SET_MODE:
             return {

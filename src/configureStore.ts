@@ -40,7 +40,7 @@ export default function configureStore(preloadedState?: any) {
 
 // import { createStore, applyMiddleware } from 'redux';
 // import { createLogger } from 'redux-logger';
-// import  {StoreStructure}  from './todos/types';
+// import  {ITodosState}  from './todos/types';
 // import thunkMiddleware from 'redux-thunk';
 
 // //Сохранение состояния во время перезагрузки
@@ -52,6 +52,6 @@ export default function configureStore(preloadedState?: any) {
 
 // const createStoreWithMiddleware = applyMiddleware(thunkMiddleware,logger)(createStore);
 
-// export default function configureStore(initialState?:StoreStructure) {
+// export default function configureStore(initialState?:ITodosState) {
 //   return createStoreWithMiddleware(rootReducer);
 // }

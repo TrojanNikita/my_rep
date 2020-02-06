@@ -18,6 +18,7 @@ const AuthApp = () => {
         <InfoLine title={'Welcome to my site !'}/>
         <section>
             <div className={styles.authPageCenter}>
+                <InfoLine title={'Welcome ...'}/>
                 <AuthNav />
                 <SwitchRoutes routes={AuthRoutes} cur_path={path} />
             </div>
