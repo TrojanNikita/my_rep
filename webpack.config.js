@@ -18,14 +18,6 @@ const config = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ],
-        exclude: /\.module\.css$/
-      },
-      {
         test: /\.ts(x)?$/,
         use: [
           'awesome-typescript-loader'
@@ -33,26 +25,23 @@ const config = {
         exclude: /node_modules/
       },
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         use: [
           { loader: 'style-loader' },
-          { loader: "css-loader", options: { modules: true } },
-          { loader: 'sass-loader'}
-        ]
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1,
-              modules: true
-            }
-          }
+              modules: {
+                localIdentName: '[local]--[hash:base64:5]',
+                context: path.join(__dirname, './app/'),
+              },
+              importLoaders: 2,
+              sourceMap: true,
+              localsConvention: 'camelCase',
+            },
+          },
+          { loader: 'sass-loader' },
         ],
-        include: /\.module\.css$/
       },
       {
         test: /\.svg$/,

@@ -1,9 +1,6 @@
 import * as React from 'react';
-import {hot} from 'react-hot-loader';
+//import {hot} from 'react-hot-loader';
 
-//Роутинг
-import { Route, Switch } from "react-router-dom";
-import history from './constants/history';
 import { AppRoutes } from './routes/app-routes';
 
 
@@ -25,6 +22,7 @@ import {useRouteMatch } from "react-router-dom";
 
 
 import './todos-app.scss';
+import SwitchRoutes from '../utils/SwitchRoutes';
 
 const TodosApp : React.FC= () => {
   let { path } = useRouteMatch();
@@ -36,15 +34,7 @@ const TodosApp : React.FC= () => {
             <AppHeader/>
             <Navigation/>
             <AddItem/>
-            <Switch>
-            { AppRoutes.map((route: AppRoute) => (
-              <Route  
-                  exact={route.exact} 
-                  path={`${path}${route.path}`} 
-                  component={route.component}
-                  key={route.path} />))
-            }
-            </Switch>
+            <SwitchRoutes routes={AppRoutes} cur_path={path} />
     </div>
   );
 }

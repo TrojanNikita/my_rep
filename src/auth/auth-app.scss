@@ -1,0 +1,21 @@
+@import './../const';
+
+
+$bc:$primary_background - 5;
+$border_bc:$primary_background - 15;
+
+
+.auth-page {
+	&__center {
+        border-radius: 20px;
+        background-color: $bc;
+        border: 1px solid $border_bc; /* Параметры границы */
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100%;
+        width: 434px;
+        min-width: 434px;
+		margin: 6rem auto;
+	}
+}

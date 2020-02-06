@@ -1,4 +1,4 @@
-@import '../../styles/mixins';
+@import './../../styles/mixins';
 
 .info-line {
 	box-sizing: border-box;
@@ -37,7 +37,7 @@
 
 	&__title {
 		@include overflow-ellipsis;
-        color: red;
+
 		font-weight: 500;
 		font-size: var(--xxx-large-font-size);
 		line-height: 1.175;

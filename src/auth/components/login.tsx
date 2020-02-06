@@ -5,8 +5,11 @@ import {useHistory} from 'react-router-dom';
 import Button from '../../ui/Button';
 import Footer from '../../ui/Footer';
 import InfoLine from '../../ui/InfoLine';
+import {InputType, ButtonType} from './../../ui/types'
 
 import './auth.scss';
+import Input from '../../ui/Input';
+import { infoLine } from '../../ui/InfoLine/InfoLine.scss';
 // Fake API Network Call
 // const apiLogin = (username, password) => {
 //   return new Promise((resolve, reject) => {
@@ -18,61 +21,92 @@ import './auth.scss';
 //   })
 // }
 
+
 const Login = () => {
-  const { setLogged } = useAuthUser();
-  let history=useHistory();
-  const [errorMessage, setErrorMessage] = React.useState();
+    const { setLogged } = useAuthUser();
+    let history=useHistory();
+    const [errorMessage, setErrorMessage] = React.useState();
 
-  function handleSubmit(e:React.FormEvent) {
-    //e.preventDefault()
-    //const [usernameNode, passwordNode] = e.target.elements
-    
-    setLogged(true);
-    history.push('/');
+    const [username, setUsername]=React.useState('');
 
-    // apiLogin(usernameNode.value, passwordNode.value)
-    //   .then(() => {
-    //     setLogged(true)
-    //     history.push('/projects')
-    //   })
-    //   .catch(() => {
-    //     setLogged(false)
-    //     setErrorMessage('Invalid')
-    //   })
-  }
+    const [password, setPassword]=React.useState('');
 
-  // return (
-  //     <div className='auth-form' style={{ minHeight: '10em' }}>
-  //       <div className="auth-form__header">
-  //         <h1 className="heading-2">Welcome ...</h1>
-  //         {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-  //       </div>
-  //       <form className="auth-form__content" onSubmit={handleSubmit}>
-  //         <input type="text" className='auth-form__content__username' placeholder="Username" required />
-  //         <input type="password" className='auth-form__content__password' placeholder="Password" required />
-  //         <button type="submit" className="btn btn-dark btn-sm form-login-btn">
-  //           Login
-  //         </button>
-  //       </form>
-  //     </div>
-  // );
+    const usernameChange = (e:React.FormEvent<HTMLInputElement>) => {
+        setUsername(e.currentTarget.value);
+    };
+    const passwordChange = (e:React.FormEvent<HTMLInputElement>) => {
+        setPassword(e.currentTarget.value);
+    };
 
+
+    function handleSubmit(e:React.FormEvent) {
+
+        //e.preventDefault()
+        //const [usernameNode, passwordNode] = e.target.elements
+        
+        setLogged(true);
+        history.push('/');
+
+        // apiLogin(usernameNode.value, passwordNode.value)
+        //   .then(() => {
+        //     setLogged(true)
+        //     history.push('/projects')
+        //   })
+        //   .catch(() => {
+        //     setLogged(false)
+        //     setErrorMessage('Invalid')
+        //   })
+    }
 
   return (
-		<main className={'auth-form'}>
+      <>
+        <InfoLine title={'Welcome ...'}/>
+        <form className="auth-form__content">
+            <Input 
+                value={username}
+                placeholder="Username"
+                onChange={usernameChange}
+            />
+            <Input
+                value={password}
+                placeholder="Password"
+                onChange={passwordChange}
+            />       
+        </form>    
+        <Button
+            kind="success"
+            form="auth-form__content"
+            type="submit"
+            onSubmit={handleSubmit}
+        >
+            Login
+        </Button>   
+      </>
+  );
+//{errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
 
-			<InfoLine title="Требуется идентификация" />
-			<Footer style={{ justifyContent: 'flex-end' }}>
-				<Button
-					kind="secondary"
-					form="auth-form"
-					type="submit"
-				>
-					Идентифицировать
-				</Button>
-			</Footer>
-		</main>
-	);
+// <button type="submit" className="btn btn-dark btn-sm form-login-btn">
+//             Login
+//           </button>
+
+
+//<input type="text" className='auth-form__content__username' placeholder="Username" required />
+
+  // return (
+	// 	<main className={'auth-form'}>
+
+	// 		<InfoLine title="Требуется идентификация" />
+	// 		<Footer style={{ justifyContent: 'flex-end' }}>
+	// 			<Button
+	// 				kind="secondary"
+	// 				form="auth-form"
+	// 				type="submit"
+	// 			>
+	// 				Идентифицировать
+	// 			</Button>
+	// 		</Footer>
+	// 	</main>
+	// );
 
 
 

@@ -1,0 +1,38 @@
+.input {
+	height: var(--input-height);
+	width: 100%;
+	background: var(--input-background);
+	border: var(--bold-stroke-width) solid var(--standard-button-stroke);
+	border-radius: var(--big-border-radius);
+	outline: none;
+	box-sizing: border-box;
+	font-size: var(--xx-large-font-size);
+	text-align: center;
+	color: var(--on-input-background);
+	&::placeholder {
+		color: var(--placeholder);
+	}
+}
+
+.with-error {
+	padding-bottom: 52px;
+
+	&[data-error] {
+		width: 100%;
+		position: relative;
+		color: var(--error);
+
+		& > .input {
+			border: var(--bold-stroke-width) solid var(--error);
+		}
+		&::after {
+			content: attr(data-error);
+			position: absolute;
+			bottom: 10px;
+			font-size: var(--large-font-size);
+			display: block;
+			width: 100%;
+			text-align: center;
+		}
+	}
+}

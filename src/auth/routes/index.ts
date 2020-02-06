@@ -1,5 +1,5 @@
 import { LOGIN, SIGNUP } from '../constants/routes';
-import {Route} from '../models/Route';
+import {Route} from '../../types/Route';
 import * as containers from './../containers';
 
 import * as names from '../constants/names';

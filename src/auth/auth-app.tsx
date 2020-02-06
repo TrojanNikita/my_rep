@@ -1,29 +1,28 @@
 import * as React from 'react'
-import { Switch, Route } from 'react-router-dom'
 import {useRouteMatch} from 'react-router';
 import Login from './components/login';
 import { Routes as AuthRoutes } from './routes';
+import SwitchRoutes from './../utils/SwitchRoutes';
+import InfoLine from '../ui/InfoLine';
+import AuthNav from './components/auth-nav';
 
-
-import {Route as AuthRoute} from './models/Route';
-
+import pageStyles from './../styles/pages.scss';
+import styles from './auth-app.scss';
 
 const AuthApp = () => {
 
   let {path} = useRouteMatch();
 
   return (
-    <div className="auth">
-      <Switch>
-      { AuthRoutes.map((route: AuthRoute) => (
-          <Route  
-              exact={route.exact} 
-              path={`${path}${route.path}`} 
-              component={route.component}
-              key={route.path} />))
-      }
-      </Switch>
-    </div>
+    <main className={pageStyles.pageContainer}>
+        <InfoLine title={'Welcome to my site !'}/>
+        <section>
+            <div className={styles.authPageCenter}>
+                <AuthNav />
+                <SwitchRoutes routes={AuthRoutes} cur_path={path} />
+            </div>
+        </section>
+    </main>
 )};
 
 export default AuthApp;
