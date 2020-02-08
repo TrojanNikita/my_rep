@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import './tools.scss';
+//import './tools.scss';
 
 import { getDoneLength} from './../../selectors/todo-selectors';
 import {GlobalState} from '../../types';

@@ -12,7 +12,7 @@
     &__li{
         @include color_btn($todo_color,$color_title);
         display: inline-block;
-        @include square(30%,100%);
+        //@include square(30%,100%);
         &__btn{ 
             @include color_btn($todo_color,$color_title);
             @include item_border();   

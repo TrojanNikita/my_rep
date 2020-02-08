@@ -1,0 +1,13 @@
+@import './../../const';
+
+.auth-nav {
+
+    color:red;
+
+
+    &__el{
+        display: inline-block;
+        width: 50%;
+        height: 100%;
+    }
+}

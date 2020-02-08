@@ -44,6 +44,13 @@ const config = {
         ],
       },
       {
+        test: /\.(jpe?g|png|svg|gif|woff|woff2|eot|ttf)$/i,
+        loader: 'file-loader',
+        options: {
+            name: '[name][hash].[ext]',
+        }
+      },
+      {
         test: /\.svg$/,
         use: 'file-loader'
       }

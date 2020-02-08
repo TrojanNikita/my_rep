@@ -16,13 +16,15 @@ const AuthApp = () => {
   return (
     <main className={pageStyles.pageContainer}>
         <InfoLine title={'Welcome to my site !'}/>
-        <section>
-            <div className={styles.authPageCenter}>
-                <InfoLine title={'Welcome ...'}/>
-                <AuthNav />
-                <SwitchRoutes routes={AuthRoutes} cur_path={path} />
+        <div className={styles.authPageCenter}>
+            <div className={styles.authPageCenterTitle}>
+                Welcome ...
             </div>
-        </section>
+            <div className={styles.authPageCenterNav}>
+                <AuthNav />
+            </div>
+            <SwitchRoutes routes={AuthRoutes} cur_path={path} />
+        </div>
     </main>
 )};
 

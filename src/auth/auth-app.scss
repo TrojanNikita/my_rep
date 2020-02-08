@@ -16,9 +16,28 @@ $border_bc:$primary_background - 15;
 		height: 100%;
         width: 434px;
         min-width: 434px;
-		margin: 6rem auto;
+        margin: 6rem auto;
+        
+        &__title {
+            color: $color-text;		
+            font-weight: 300;
+            font-size: $large-font-size;
+            line-height: 1.175;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        &__nav {
+            color: $color-text;
+            font-size: $large-font-size;
+            margin: 1rem;
+            padding: 0;
+        }
+
+
 	}
 }
+
 
 .input{
 

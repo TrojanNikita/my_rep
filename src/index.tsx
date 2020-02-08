@@ -5,7 +5,7 @@ import * as ReactDOM from "react-dom";
 
 import App from './app';
 
-import './index.scss';
+import './global.scss';
 
 
 const render = () => {
