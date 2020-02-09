@@ -7,10 +7,6 @@ $border_bc:$primary_background - 15;
 
 .auth-page {
 	&__center {
-        border-radius: 20px;
-        background-color: $bc;
-        border: 1px solid $border_bc; /* Параметры границы */
-		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		height: 100%;
@@ -33,14 +29,20 @@ $border_bc:$primary_background - 15;
             margin: 1rem;
             padding: 0;
         }
-
-
+        &__content {
+            color: $color-text;
+            font-size: $large-font-size;
+            flex-direction: column;
+            justify-content: center;
+            width: 60%;
+            margin: auto;
+        }
 	}
 }
 
 
-.input{
+// .input{
 
-    background: white;
-    margin-bottom: -16;
-}
+//     background: white;
+//     margin-bottom: -16;
+// }

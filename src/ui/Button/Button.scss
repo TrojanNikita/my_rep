@@ -1,15 +1,17 @@
+@import './../../const';
+
+
 .button {
     //height: 100%;
     width: 100%;
 	// padding: 0 1.125em;
-    border: none;
+	border: none;
+	outline: none;
     padding: 0;
-	// font-size: var(--x-large-font-size);
-	// border-radius: var(--default-border-radius);
-	// outline: var(--default-outline);
-	// transition-property: opacity;
-	// transition-duration: 0.2s;
-	// transition-delay: 0.2s;
+	font-size: $x-large-font-size;
+	transition-property: opacity;
+	transition-duration: 0.2s;
+	transition-delay: 0.2s;
 
 	& * {
 		pointer-events: none;
@@ -25,7 +27,7 @@
 	&-kind {
 		&_default-on-navigation {
 			//color: var(--on-standard-button);
-			//background: var(--on-navigation-background-standard-button);
+			background: var(--on-navigation-background-standard-button);
 			border: none;
 		}
 		&_default-on-background {

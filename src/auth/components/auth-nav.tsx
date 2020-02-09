@@ -16,30 +16,41 @@ import styles, { authNav } from './auth-nav.scss'
 
 const AuthNav:React.FC=()=>{
 
+    const location = useLocation();
     const {url}=useRouteMatch();
     const [activeLink, setActiveLink]=React.useState<AuthRoute>(AuthRoutes.find(
-        (route)=>(`auth${route.path}`===url))||AuthRoutes[0]);
-    React.useEffect(
-        () => {
-            setActiveLink(activeLink)
+        (route)=>(`/auth${route.path}`===location.pathname))||AuthRoutes[0]);
+    // React.useEffect(
+    //     () => {
+    //         debugger
+    //         setActiveLink(activeLink)
+    //         console.log(activeLink);
+    //     },
+    //     [location.pathname, setActiveLink]
+    // )  
+    const handleClick=React.useCallback(
+        (route: AuthRoute) =>()=> {
+            setActiveLink(route);  
         },
-        [url]
-    )    
-    
+        [setActiveLink],
+    )
+
     return(
         <ul className={styles.authNav}>
             {AuthRoutes.map((route: AuthRoute) => (
                 <li 
-                    className={cn(styles.authNavEl)} key={route.id}>
-                    
-                    <RouteButton redirectTo={`${url}${route.path}`}>
-                        {(props) => (
-                                <Button {...props}>
-                                    {route.description}
-                                </Button>
-                            )}
-                    </RouteButton>
-            </li>
+                    className={cn(styles.element)} 
+                    key={route.id}
+                    style={{ borderBottom:  activeLink.description === route.description? 
+                        '3px solid purple': 'none'}}
+                >
+                    <Link   to={`${url}${route.path}`}
+                            className={styles.link}
+                            onClick={handleClick(route)}
+                    >
+                        {route.description}
+                    </Link>
+                </li>
             ))}
         </ul>
     );

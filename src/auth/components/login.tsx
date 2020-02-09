@@ -1,17 +1,12 @@
 import * as React from 'react';
-// import Panel from '../ui/Panel'
 import { useAuthUser } from '../../utils/AuthUser';
 import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import Button from '../../ui/Button';
-import Footer from '../../ui/Footer';
-import InfoLine from '../../ui/InfoLine';
-import {InputType, ButtonType} from './../../ui/types';
 import {changeUsername, changePassword} from './../actions/actions';
 
 import styles from './login-form.scss';
 import Input from '../../ui/Input';
-import { infoLine } from '../../ui/InfoLine/InfoLine.scss';
 import { getUsername, getPassword } from '../selectors/auth-selector';
 // Fake API Network Call
 // const apiLogin = (username, password) => {

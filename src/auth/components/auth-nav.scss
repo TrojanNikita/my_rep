@@ -1,13 +1,25 @@
 @import './../../const';
 
 .auth-nav {
+	padding: var(--xx-small-padding);
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	white-space: nowrap; 
+    text-align: center;
+    list-style-type: none;
+}
 
-    color:red;
-
-
-    &__el{
-        display: inline-block;
+.element {
         width: 50%;
         height: 100%;
-    }
+}
+.link {
+    text-decoration: none;
+    color:$color-text;
+    font-size: $middle-font-size;
+    &:hover {
+        color:$color-text;
+      }
 }

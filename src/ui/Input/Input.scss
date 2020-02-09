@@ -1,9 +1,9 @@
-
+@import './../../const';
 
 
 
 .input {
-	height: var(--input-height);
+	height: $input-height;
 	width: 100%;
 	background: var(--input-background);
 	border: var(--bold-stroke-width) solid var(--standard-button-stroke);
@@ -19,7 +19,7 @@
 }
 
 .with-error {
-	padding-bottom: 52px;
+	padding-bottom: 40px;
 
 	&[data-error] {
 		width: 100%;

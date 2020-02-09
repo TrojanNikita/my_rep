@@ -49,10 +49,6 @@ const config = {
         options: {
             name: '[name][hash].[ext]',
         }
-      },
-      {
-        test: /\.svg$/,
-        use: 'file-loader'
       }
     ]
   },
