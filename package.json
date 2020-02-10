@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@types/classnames": "^2.2.9",
+    "antd": "^3.26.9",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-hot-loader": "^4.12.18"

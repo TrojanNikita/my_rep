@@ -14,7 +14,7 @@ const withKind = (component: React.FunctionComponent<React.ButtonHTMLAttributes<
 	const buttonKindClass = React.useMemo(() => {
 		switch (kind) {
 			case 'default': return styles.buttonKindDefaultOnNavigation;
-			case 'success':
+			case 'success': return styles.buttonKindSuccess;
 			case 'primary': return styles.buttonKindSuccess;
 			case 'secondary': return styles.buttonKindDefaultOnBackground;
 			case 'danger': return styles.buttonKindDanger;

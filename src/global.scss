@@ -1,7 +1,6 @@
 
 @import './_const';
-
-
+@import '~antd/dist/antd.css';
 @import './styles/mixins';
 
 @font-face {
@@ -70,8 +69,7 @@
 	--big-border-radius: 16px;
 	--clock-time-font-size: 30px;
 	--button-inset-shadow-height: var(--base-padding);
-	--middle-stroke-width: 2px;
-	--bold-stroke-width: 3px;
+    --middle-stroke-width: 2px;
 
 	/* THEME COLORS */
 	--primary: rgb(36, 78, 47);

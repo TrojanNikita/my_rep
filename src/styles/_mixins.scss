@@ -24,3 +24,11 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
+
+@mixin turn-by-deg($d){
+    -moz-transform: rotate($d); /* Для Firefox */
+    -ms-transform: rotate($d); /* Для IE */
+    -webkit-transform: rotate($d); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate($d); /* Для Opera */
+    transform: rotate($d);
+}

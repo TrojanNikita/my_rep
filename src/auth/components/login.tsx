@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useAuthUser } from '../../utils/AuthUser';
 import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
-import Button from '../../ui/Button';
+import Button from 'antd/es/button';
 import {changeUsername, changePassword} from './../actions/actions';
 
 import styles from './login-form.scss';
@@ -69,14 +69,9 @@ const Login = () => {
                 className={styles.loginFormInput}
             />       
         </form>    
-        <Button
-            kind="success"
-            form="login-form"
-            type="submit"
-            onSubmit={handleSubmit}
-        >
-            Login
-        </Button>   
+        <Button type="dashed" size='large'>
+          Dashed
+        </Button>
       </>
   );
 };
