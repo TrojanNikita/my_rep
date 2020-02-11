@@ -144,10 +144,17 @@ body, html {
 	// background: linear-gradient(to right, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 	background: #FF8008;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #FFC837, #FF8008);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: -webkit-linear-gradient(to right, rgb(203, 210, 252), rgb(134, 146, 253));  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, rgb(219, 195, 198), rgb(191, 197, 243)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+
+
+// background: -webkit-linear-gradient(to right, #FFC837, #FF8008);  /* Chrome 10-25, Safari 5.1-6 */
+// background: linear-gradient(to right, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+// rgb(248, 206, 212), rgb(191, 197, 243)
 
 Link {
 	text-decoration: none;

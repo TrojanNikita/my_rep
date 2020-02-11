@@ -32,7 +32,7 @@ $input-bottom-padding: 40px;
 		&::after {
 			content: attr(data-error);
             position: absolute;
-			bottom: $input-bottom-padding/2;
+			bottom: $input-bottom-padding - 12;
 			font-size: $small-font-size;
 			display: block;
 			width: 100%;

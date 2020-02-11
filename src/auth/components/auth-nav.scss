@@ -1,7 +1,6 @@
 @import './../../const';
 
 .auth-nav {
-	padding: var(--xx-small-padding);
 	margin: 0;
 	display: flex;
 	flex-wrap: wrap;
@@ -9,6 +8,8 @@
 	white-space: nowrap; 
     text-align: center;
     list-style-type: none;
+    box-sizing: content-box;
+    border-bottom: 1px solid rgb(199, 189, 207);
 }
 
 .element {

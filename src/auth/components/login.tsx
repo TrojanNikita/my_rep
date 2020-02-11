@@ -65,6 +65,7 @@ const Login = () => {
                 onChange={usernameChange}
             />
             <Input
+                type = 'password'
                 value={password}
                 placeholder="Password"
                 onChange={passwordChange}
