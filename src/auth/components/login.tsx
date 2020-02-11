@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useAuthUser } from '../../utils/AuthUser';
 import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
-import Button from 'antd/es/button';
+import Button from '../../ui/Button';
 import {changeUsername, changePassword} from './../actions/actions';
 
 import styles from './login-form.scss';
@@ -23,7 +23,7 @@ import { getUsername, getPassword } from '../selectors/auth-selector';
 const Login = () => {
     const { setLogged } = useAuthUser();
     let history=useHistory();
-    const [errorMessage, setErrorMessage] = React.useState();
+    const [errorMessage, setErrorMessage] = React.useState(false);
     const dispatch = useDispatch();
     // const [username, setUsername]=React.useState('');
     const username=useSelector(getUsername);
@@ -38,10 +38,11 @@ const Login = () => {
     };
 
     function handleSubmit(e:React.FormEvent) {
+        setErrorMessage(true);
         //e.preventDefault()
         //const [usernameNode, passwordNode] = e.target.elements        
-        setLogged(true);
-        history.push('/');
+        //setLogged(true);
+        //history.push('/');
         // apiLogin(usernameNode.value, passwordNode.value)
         //   .then(() => {
         //     setLogged(true)
@@ -51,6 +52,7 @@ const Login = () => {
         //     setLogged(false)
         //     setErrorMessage('Invalid')
         //   })
+
     }
 
   return (
@@ -58,25 +60,32 @@ const Login = () => {
         <form id="login-form" onSubmit={handleSubmit}>
             <Input 
                 value={username}
+                data-error={errorMessage?'error username':undefined}
                 placeholder="Username"
                 onChange={usernameChange}
-                className={styles.loginFormInput}
             />
             <Input
                 value={password}
                 placeholder="Password"
                 onChange={passwordChange}
-                className={styles.loginFormInput}
             />       
         </form>    
-        <Button type="dashed" size='large'>
-          Dashed
+        <Button 
+            kind='default'
+            type='button'
+            onClick={handleSubmit}
+        >
+            Login
         </Button>
       </>
   );
 };
 
 export default Login;
+
+
+
+// className={styles.loginFormInput}
 //{errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
 
 // <button type="submit" className="btn btn-dark btn-sm form-login-btn">

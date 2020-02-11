@@ -42,7 +42,7 @@ const AuthNav:React.FC=()=>{
                     className={cn(styles.element)} 
                     key={route.id}
                     style={{ borderBottom:  activeLink.description === route.description? 
-                        '3px solid purple': 'none'}}
+                        '3px solid rgb(255, 203, 126)': 'none'}}
                 >
                     <Link   to={`${url}${route.path}`}
                             className={styles.link}

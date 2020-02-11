@@ -5,17 +5,25 @@ $primary_background:#F8FAF6;
 $primary-dark:#F8FAF6 - 5;
 
 //Цвета текста
-$color-text:rgb(112, 223, 231);
+$color-text:rgb(132, 255, 183);
+// $color-text:rgb(115, 245, 169);
 
+//Активное выделение
+$color-active: rgb(255, 203, 126);
 
 //Размеры шрифтов
 $xxx-large-font-size: 2.5rem; // 40px
 $large-font-size: 2.25rem;
 $middle-font-size: 1.25rem;
+$small-font-size: 0.75rem;
 
+//Внутри инпута
+$placeholder: rgb(255, 222, 199);
 
 //Рамка кнопки
-$bold-stroke-width: 1px;
+$error-stroke-width: 3px;
+//Рамка кнопки
+$middle-stroke-width: 1px;
 
 $input-height: 40px;
 
@@ -25,6 +33,10 @@ $xx-large-font-size: 2.25rem; // 36px
 
 //Минимальная высота заголовков
 $small-section-height: 100px;
+
+$success: rgb(232, 255, 170);
+
+$error: rgb(211, 87, 49);
 
 
 $link_col:#5A8A6D;

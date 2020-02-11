@@ -19,11 +19,11 @@
 	&:active {
         
 		box-shadow: 0 0 10px rgba(0,0,0,0.5);
-			background: var(--on-standard-background-standard-button);
+		background: var(--on-standard-background-standard-button);
 	}
 	&:disabled {
 		pointer-events: none;
-		border: $bold-stroke-width solid var(--standard-button-stroke);
+		border: $middle-stroke-width solid var(--standard-button-stroke);
 		opacity: 0.6;
     }
     &:hover {
