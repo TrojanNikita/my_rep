@@ -14,40 +14,24 @@ import Input from '../../ui/Input';
 import { infoLine } from '../../ui/InfoLine/InfoLine.scss';
 import { getUsername, getPassword } from '../selectors/auth-selector';
 
-const Signup = () => {
-    const { setLogged } = useAuthUser();
-    let history=useHistory();
-    const dispatch = useDispatch();
-    const username=useSelector(getUsername);
-    const password=useSelector(getPassword);
-    const [name, setName]=React.useState('');
-    const [lastName, setLastName]=React.useState('');
-    const [confirmPassword, setConfirmPassword]=React.useState('');
-    const [email, setEmail]=React.useState('');
+interface SignupProps{
+	inputUPlaceholder: string;
+	inputUValue: string;
+	inputUOnChange: (e:React.FormEvent<HTMLInputElement>)=>void;
+	inputPPlaceholder: string;
+	inputPValue: string;
+	inputPOnChange: (e:React.FormEvent<HTMLInputElement>)=>void;
+	buttonOnClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+}
 
 
-    const usernameChange = (e:React.FormEvent<HTMLInputElement>) => {
-        dispatch(changeUsername(e.currentTarget.value));
-    };
-    const passwordChange = (e:React.FormEvent<HTMLInputElement>) => {
-        dispatch(changePassword(e.currentTarget.value));
-    };
-    const nameChange = (e:React.FormEvent<HTMLInputElement>) => {
-        setName(e.currentTarget.value);
-    };
-    const lastNameChange = (e:React.FormEvent<HTMLInputElement>) => {
-        setLastName(e.currentTarget.value);
-    };
-    const confirmPasswordChange = (e:React.FormEvent<HTMLInputElement>) => {
-        setConfirmPassword(e.currentTarget.value);
-    };
-    const emailChange = (e:React.FormEvent<HTMLInputElement>) => {
-        setEmail(e.currentTarget.value);
-    };
-    function handleSubmit(e:React.FormEvent) {    
-        setLogged(true);
-        history.push('/');
-    }
+
+
+
+const Signup = ({inputUPlaceholder='input 1', inputUValue='', inputUOnChange,
+				inputPPlaceholder='input 2',inputPValue='', inputPOnChange,
+				buttonOnClick}: SignupProps) => {
+    
 
   return (
       <>
@@ -62,16 +46,17 @@ const Signup = () => {
                 placeholder="Last Name *"
                 onChange={lastNameChange}
             />
-            <Input 
-                value={username}
-                placeholder="Username *"
-                onChange={usernameChange}
-            />
-            <Input
-                value={password}
-                placeholder="Password *"
-                onChange={passwordChange}
-            /> 
+			<Input 
+				value={inputUValue}
+				placeholder={inputUPlaceholder}
+				onChange={inputUOnChange}
+			/>
+			<Input
+				type = 'password'
+				value={inputPValue}
+				placeholder={inputPPlaceholder}
+				onChange={inputPOnChange}
+			/> 
             <Input
                 value={confirmPassword}
                 placeholder="Confirm Password *"
@@ -84,10 +69,9 @@ const Signup = () => {
             />        
         </form>    
         <Button
-            kind="success"
-            form="auth-form__content"
-            type="submit"
-            onSubmit={handleSubmit}
+				kind='default'
+				type='button'
+				onClick={buttonOnClick}
         >
             Signup
         </Button>   
@@ -95,4 +79,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default React.memo(Signup);

@@ -1,88 +1,53 @@
 import * as React from 'react';
-import { useAuthUser } from '../../utils/AuthUser';
-import {useDispatch, useSelector} from 'react-redux';
-import {useHistory} from 'react-router-dom';
 import Button from '../../ui/Button';
-import {changeUsername, changePassword} from './../actions/actions';
 
 import styles from './login-form.scss';
 import Input from '../../ui/Input';
-import { getUsername, getPassword } from '../selectors/auth-selector';
-// Fake API Network Call
-// const apiLogin = (username, password) => {
-//   return new Promise((resolve, reject) => {
-//     if (username === 'react' && password === 'react') {
-//       resolve()
-//     } else {
-//       reject()
-//     }
-//   })
-// }
 
+interface LoginProps{
+	inputUPlaceholder: string;
+	inputUValue: string;
+	inputUOnChange: (e:React.FormEvent<HTMLInputElement>)=>void;
+	inputPPlaceholder: string;
+	inputPValue: string;
+	inputPOnChange: (e:React.FormEvent<HTMLInputElement>)=>void;
+	buttonOnClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+}
 
-const Login = () => {
-    const { setLogged } = useAuthUser();
-    let history=useHistory();
-    const [errorMessage, setErrorMessage] = React.useState(false);
-    const dispatch = useDispatch();
-    // const [username, setUsername]=React.useState('');
-    const username=useSelector(getUsername);
-    const password=useSelector(getPassword);
+const Login = ({inputUPlaceholder='input 1', inputUValue='', inputUOnChange,
+				inputPPlaceholder='input 2',inputPValue='', inputPOnChange,
+				buttonOnClick}: LoginProps) => {
 
-
-    const usernameChange = (e:React.FormEvent<HTMLInputElement>) => {
-        dispatch(changeUsername(e.currentTarget.value));
-    };
-    const passwordChange = (e:React.FormEvent<HTMLInputElement>) => {
-        dispatch(changePassword(e.currentTarget.value));
-    };
-
-    function handleSubmit(e:React.FormEvent) {
-        setErrorMessage(true);
-        //e.preventDefault()
-        //const [usernameNode, passwordNode] = e.target.elements        
-        //setLogged(true);
-        //history.push('/');
-        // apiLogin(usernameNode.value, passwordNode.value)
-        //   .then(() => {
-        //     setLogged(true)
-        //     history.push('/projects')
-        //   })
-        //   .catch(() => {
-        //     setLogged(false)
-        //     setErrorMessage('Invalid')
-        //   })
-
-    }
-
-  return (
-      <>
-        <form id="login-form" onSubmit={handleSubmit}>
-            <Input 
-                value={username}
-                data-error={errorMessage?'error username':undefined}
-                placeholder="Username"
-                onChange={usernameChange}
-            />
-            <Input
-                type = 'password'
-                value={password}
-                placeholder="Password"
-                onChange={passwordChange}
-            />       
-        </form>    
-        <Button 
-            kind='default'
-            type='button'
-            onClick={handleSubmit}
-        >
-            Login
-        </Button>
-      </>
-  );
+	return (
+		<>
+			<form id="login-form">
+				<Input 
+					value={inputUValue}
+					placeholder={inputUPlaceholder}
+					onChange={inputUOnChange}
+				/>
+				<Input
+					type = 'password'
+					value={inputPValue}
+					placeholder={inputPPlaceholder}
+					onChange={inputPOnChange}
+				/>       
+			</form>    
+			<Button 
+				kind='default'
+				type='button'
+				onClick={buttonOnClick}
+			>
+				Login
+			</Button>
+		</>
+	);
 };
 
-export default Login;
+export default React.memo(Login);
+
+
+// data-error={errorMessage?'error username':undefined}
 
 
 
