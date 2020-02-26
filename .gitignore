@@ -7,6 +7,7 @@ dist/bundle.js
 node_modules/
 *.log
 .metals
+.vscode/
 
 # OS generated files
 .DS_Store
