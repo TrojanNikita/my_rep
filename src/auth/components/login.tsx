@@ -14,14 +14,15 @@ interface LoginProps{
 	buttonOnClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const Login = ({inputUPlaceholder='input 1', inputUValue='', inputUOnChange,
-				inputPPlaceholder='input 2',inputPValue='', inputPOnChange,
-				buttonOnClick}: LoginProps) => {
+function Login ({
+	inputUPlaceholder='input 1', inputUValue='', inputUOnChange,
+	inputPPlaceholder='input 2',inputPValue='', inputPOnChange,
+	buttonOnClick}: LoginProps) {
 
 	return (
 		<>
 			<form id="login-form">
-				<Input 
+				<Input
 					value={inputUValue}
 					placeholder={inputUPlaceholder}
 					onChange={inputUOnChange}
@@ -31,9 +32,9 @@ const Login = ({inputUPlaceholder='input 1', inputUValue='', inputUOnChange,
 					value={inputPValue}
 					placeholder={inputPPlaceholder}
 					onChange={inputPOnChange}
-				/>       
-			</form>    
-			<Button 
+				/>
+			</form>
+			<Button
 				kind='default'
 				type='button'
 				onClick={buttonOnClick}

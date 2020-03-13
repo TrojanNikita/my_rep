@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import Login from './../components/login';
 import {getAuth} from '../selectors/auth-selector';
-import {setFormField} from './../actions/actions';
+import {setUsername, setPassword, setEmail} from './../actions/actions';
 import { useAuthUser } from '../../utils/AuthUser';
 import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
@@ -13,20 +13,30 @@ const LoginContainer:React.FC =() => {
 
 	const [errorMessage, setErrorMessage] = useState(false);
 	const dispatch = useDispatch();
-	const auth=useSelector(getAuth);
+	const auth = useSelector(getAuth);
 
 
 
 
-	const inputChange = useCallback((e:React.FormEvent<HTMLInputElement>) => {
-			dispatch(setFormField(e.currentTarget.name, e.currentTarget.value));
-	},[]);
+	const usernameChange = useCallback((e:React.FormEvent<HTMLInputElement>) => {
+		dispatch(setUsername(e.currentTarget.value));
+	},[setUsername]);
+	const passwordChange = useCallback((e:React.FormEvent<HTMLInputElement>) => {
+		dispatch(setPassword(e.currentTarget.value));
+	},[setUsername]);
+	// const emailChange = useCallback((e:React.FormEvent<HTMLInputElement>) => {
+	// 	dispatch(setEmail(e.currentTarget.value));
+	// },[setUsername]);
+
+
+	// const inputChange = (e:React.FormEvent<HTMLInputElement>) => {
+	// 	dispatch(setFormField(e.currentTarget.name,e.currentTarget.value));
+	// };
 
 
 
 
-
-	function handleSubmit(e:React.FormEvent) {
+	function handleSubmit() {
 		setErrorMessage(true);
 		//e.preventDefault()
 		//const [usernameNode, passwordNode] = e.target.elements
@@ -49,10 +59,10 @@ const LoginContainer:React.FC =() => {
 return (<Login
 			inputUPlaceholder='Username'
 			inputUValue={auth.username}
-			inputUOnChange={inputChange}
+			inputUOnChange={usernameChange}
 			inputPPlaceholder='Password'
 			inputPValue={auth.password}
-			inputPOnChange={inputChange}
+			inputPOnChange={passwordChange}
 			buttonOnClick={handleSubmit}
 		/>);
 };

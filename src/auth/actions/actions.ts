@@ -4,7 +4,15 @@ import {ActionAuth} from './../models/Actions';
 import {AuthForm} from './../models/AuthForm';
 import { IAuthState } from '../models/IAuthState';
 
-export const setFormField=(name:string, value:string):ActionAuth=>({
-	type: types.SET_FORM_FIELD,
-	payload: {name,value}
+export const setUsername=(value:string): ActionAuth=>({
+	type: types.SET_USERNAME,
+	payload: value
+})
+export const setPassword=(value:string): ActionAuth=>({
+	type: types.SET_PASSWORD,
+	payload: value
+})
+export const setEmail=(value:string): ActionAuth=>({
+	type: types.SET_EMAIL,
+	payload: value
 })
