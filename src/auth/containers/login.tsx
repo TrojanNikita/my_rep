@@ -24,47 +24,22 @@ const LoginContainer:React.FC =() => {
 	const passwordChange = useCallback((e:React.FormEvent<HTMLInputElement>) => {
 		dispatch(setPassword(e.currentTarget.value));
 	},[setUsername]);
-	// const emailChange = useCallback((e:React.FormEvent<HTMLInputElement>) => {
-	// 	dispatch(setEmail(e.currentTarget.value));
-	// },[setUsername]);
-
-
-	// const inputChange = (e:React.FormEvent<HTMLInputElement>) => {
-	// 	dispatch(setFormField(e.currentTarget.name,e.currentTarget.value));
-	// };
-
-
 
 
 	function handleSubmit() {
 		setErrorMessage(true);
-		//e.preventDefault()
-		//const [usernameNode, passwordNode] = e.target.elements
-		//setLogged(true);
-		//history.push('/');
-		// apiLogin(usernameNode.value, passwordNode.value)
-		//   .then(() => {
-		//     setLogged(true)
-		//     history.push('/projects')
-		//   })
-		//   .catch(() => {
-		//     setLogged(false)
-		//     setErrorMessage('Invalid')
-		//   })
-
 	}
 
-
-
 return (<Login
-			inputUPlaceholder='Username'
-			inputUValue={auth.username}
-			inputUOnChange={usernameChange}
-			inputPPlaceholder='Password'
-			inputPValue={auth.password}
-			inputPOnChange={passwordChange}
-			buttonOnClick={handleSubmit}
-		/>);
+		inputUPlaceholder='Username'
+		inputUValue={auth.username}
+		inputUOnChange={usernameChange}
+		inputUError={errorMessage}
+		inputPPlaceholder='Password'
+		inputPValue={auth.password}
+		inputPOnChange={passwordChange}
+		buttonOnClick={handleSubmit}
+	/>);
 };
 
 export default LoginContainer;

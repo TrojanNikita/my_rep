@@ -7,6 +7,7 @@ import Input from '../../ui/Input';
 interface LoginProps{
 	inputUPlaceholder: string;
 	inputUValue: string;
+	inputUError: boolean;
 	inputUOnChange: (e:React.FormEvent<HTMLInputElement>)=>void;
 	inputPPlaceholder: string;
 	inputPValue: string;
@@ -15,7 +16,7 @@ interface LoginProps{
 }
 
 function Login ({
-	inputUPlaceholder='input 1', inputUValue='', inputUOnChange,
+	inputUPlaceholder='input 1', inputUValue='', inputUError, inputUOnChange,
 	inputPPlaceholder='input 2',inputPValue='', inputPOnChange,
 	buttonOnClick}: LoginProps) {
 
@@ -26,6 +27,7 @@ function Login ({
 					value={inputUValue}
 					placeholder={inputUPlaceholder}
 					onChange={inputUOnChange}
+					data-error= {inputUError? 'Не удалось войти': undefined}
 				/>
 				<Input
 					type = 'password'

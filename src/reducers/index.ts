@@ -15,17 +15,17 @@ import {IAuthState} from '../auth/models/IAuthState';
 //generate root reducer
 
 export const rootReducer = (history: History) => combineReducers({
-    router: connectRouter(history),
-    todos: TodoReducer,
-    modeStatus: ModeStatusReducer,
-    auth: AuthReducer
+	router: connectRouter(history),
+	todos: TodoReducer,
+	modeStatus: ModeStatusReducer,
+	auth: AuthReducer
 });
 
 export interface RootState {
-    todos: ITodosState;
-    modeStatus:IModeStatusState;
-    router: RouterState;
-    auth: IAuthState;
+	todos: ITodosState;
+	modeStatus:IModeStatusState;
+	router: RouterState;
+	auth: IAuthState;
 }
 
 
