@@ -10,7 +10,7 @@ const initState: ISignupState = {
 		last_name: '',
 };
 
-export function AuthReducer (
+export default function authReducer (
 	state=initState,
 	{ type, payload }: IActionChange): ISignupState {
 	switch (type) {
@@ -23,5 +23,3 @@ export function AuthReducer (
 			return state
 	}
 }
-
-export default AuthReducer;

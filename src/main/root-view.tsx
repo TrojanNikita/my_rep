@@ -3,7 +3,7 @@ import { Route, Switch, useRouteMatch } from "react-router-dom";
 
 
 import LeftMenu from './left-menu/left-menu';
-import TodosApp from './../todos/todos-app';
+//import TodosApp from './../todos/todos-app';
 import Gallery from './../gallery/gallery-app';
 
 //main page (left menu and switched components)
@@ -15,8 +15,7 @@ const RootView: React.FC<{}> = () => {
   return (
     <div className="app-main">
         <LeftMenu/>
-        <Switch>
-          <Route path={`${path}todos`} component={TodosApp}/>          
+        <Switch>       
           <Route path={`${path}gallery`} component={Gallery} />
         </Switch>
     </div>

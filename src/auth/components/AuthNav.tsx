@@ -2,41 +2,44 @@ import * as React from 'react';
 import { Link,  useLocation, useHistory } from "react-router-dom";
 import cn from 'classnames';
 import styles from './auth-nav.scss';
+import {sections} from '../constants/main';
+import { AuthNames } from '../constants/main';
 
 //useLocation вместо withRouter и тд
-interface AuthNavProps {
-	routes: string[];
-}
+const TABS_TITLES = {
+	[AuthNames.login]: 'Log In',
+	[AuthNames.signup]: 'Sign Up',
+};
 
-const AuthNav=({routes}:AuthNavProps)=>{
+const AuthNav=()=>{
 
 	const {useState} = React;
 	const location = useLocation();
 
-	const [active, setActive]=useState(routes.find((route)=>(route===location.pathname))||routes[0])
+	const [active, setActive]=useState(sections.find((section)=>(section.path===location.pathname))||sections[0])
 
 	const handleClick=React.useCallback(
-		(route: string) =>()=> {
-			setActive(route);
+		(section) =>()=> {
+			setActive(section);
 		},
 		[setActive],
 	)
 
 	return(
 		<ul className={styles.authNav}>
-			{routes.map((route) => (
+			{sections.map((section) => (
 				<li
 					className={cn(styles.element)}
-					key={route}
-					style={{ borderBottom:  active === route?
+					key={section.name}
+					style={{ borderBottom:  active === section?
 						'3px solid rgb(159, 126, 185)': 'none'}}
 				>
 					<Link
-							to={route}
+							to={section.path}
 							className={styles.link}
-							onClick={handleClick(route)}
+							onClick={handleClick(section)}
 					>
-						{route}
+						{TABS_TITLES[section.name]}
 					</Link>
 				</li>
 			))}

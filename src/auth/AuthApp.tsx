@@ -3,13 +3,12 @@ import AuthNav from './components/AuthNav';
 
 import pageStyles from '../styles/pages.scss';
 import styles from './auth-app.scss';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import AuthContent from './containers/AuthContent';
-import {BASE_URL} from './constants/url';
+import Routes from './routes/Routes';
+ 
 
 const AuthApp = () => {
 
-	const routes: string[]=[`${BASE_URL}`,`${BASE_URL}/sign`];
+
 
 	return (
 		<main className={pageStyles.pageContainer}>
@@ -18,20 +17,10 @@ const AuthApp = () => {
 					Welcome ...
 				</div>
 				<div className={styles.authPageCenterNav}>
-					<AuthNav routes={routes}/>
+					<AuthNav />
 				</div>
 				<div className={styles.authPageCenterContent}>
-					<Switch>
-						<Route
-							exact
-							path={routes}
-						>
-							<AuthContent />
-						</Route>
-						<Route>
-							<Redirect to={BASE_URL} />
-						</Route>
-					</Switch>
+					<Routes />
 				</div>
 			</div>
 		</main>

@@ -13,13 +13,14 @@ interface SignupProps {
 	handleChange: (e:React.FormEvent<HTMLInputElement>)=>void;
 }
 
-function Signup ({getValue, hasError, inputData, buttonOnClick, handleChange}: SignupProps) {
+function AuthPopup ({getValue, hasError, inputData, buttonOnClick, handleChange}: SignupProps) {
 
 	return (
 		<>
 			<form className="auth-form__content">
 				{inputData.map(({name, placeholder, isHide})=>
 					<Input
+						key={name}
 						name={name}
 						type={isHide? 'password': undefined}
 						placeholder={placeholder}
@@ -40,4 +41,4 @@ function Signup ({getValue, hasError, inputData, buttonOnClick, handleChange}: S
 	);
 };
 
-export default React.memo(Signup);
+export default React.memo(AuthPopup);

@@ -21,9 +21,9 @@ const AuthContent:React.FC =() => {
 	console.log(location.pathname);
 	const getValue = (field: keyof ISignupState) => auth[field];
 
-	const handleChange = useCallback(({ currentTarget: {name, value} }:React.FormEvent<HTMLInputElement>) => {
+	const handleChange = useCallback(({ currentTarget: {name, value} }:React.SyntheticEvent<HTMLInputElement>) => {
 		dispatch(
-			setFormField(name, value)
+			setFormField(name as (keyof ISignupState), value)
 		);
 	},[setFormField]);
 
@@ -34,8 +34,6 @@ const AuthContent:React.FC =() => {
 		? null
 		: setErrorMessage(true);
 	}
-
-
 
 	return (<AuthPopup
 			getValue={getValue}
