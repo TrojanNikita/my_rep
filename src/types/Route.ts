@@ -1,7 +1,6 @@
-export interface Route {
-    id: string;
-    path: string;
-    component: any;
-    description: string;
-    exact: boolean;
+export interface Route{
+	id: string;
+	path: string;
+	description: string;
+	exact: boolean;
 }

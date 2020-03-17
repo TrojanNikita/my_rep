@@ -1,26 +1,29 @@
 import * as React from 'react'
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import {Route as IRoute} from './../types/Route';
 
 interface ISwitch{
 	routes: IRoute[];
-	cur_path:string;
+	children: React.ReactNode;
 }
 
-const SwitchRoutes = ({routes, cur_path}:ISwitch)=>{
+const SwitchRoutes = ({routes, children}:ISwitch)=>{
+
+	let {path} = useRouteMatch();
 
 	return (
 		<Switch>
 		{ routes.map((route: IRoute) => (
 			<Route
 				exact={route.exact}
-				path={`${cur_path}${route.path}`}
-				component={route.component}
-				key={route.path} />))
+				path={`${path}${route.path}`}
+				key={route.path}
+			>
+				{children}
+			</Route>))
 		}
 		</Switch>
 	);
 };
- 
+
 export default React.memo(SwitchRoutes);
-  

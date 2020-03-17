@@ -2,22 +2,22 @@ import * as React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { AuthUserProvider } from '../utils/AuthUser'
 import AuthorizedRoute from '../utils/AuthorizedRoute'
-import AuthApp from '../auth/auth-app'
+import AuthApp from '../auth/AuthApp'
 import RootView from '../main/root-view';
 
 
 //root routes and redirect on auth
 
 const routes = (
-  <React.Fragment>
-      <AuthUserProvider>
-        <Switch>
-          <Route path="/auth" component={AuthApp}/>
-          <AuthorizedRoute  path="/" component={RootView}/>
-          <Redirect to="/" />
-        </Switch>
-      </AuthUserProvider>
-  </React.Fragment>
+	<React.Fragment>
+		<AuthUserProvider>
+			<Switch>
+				<Route path="/auth" component={AuthApp}/>
+				<AuthorizedRoute  path="/" component={RootView}/>
+				<Redirect to="/" />
+			</Switch>
+		</AuthUserProvider>
+	</React.Fragment>
 );
 
 export default routes;

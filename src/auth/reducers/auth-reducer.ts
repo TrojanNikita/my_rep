@@ -1,8 +1,8 @@
-import {SET_USERNAME, SET_PASSWORD, SET_EMAIL, SET_FORM_FIELD} from '../constants/actions';
-import  {IAuthState}  from '../models/IAuthState';
-import {IActionChange} from '../models/Actions';
+import {SET_FORM_FIELD} from '../constants/actions';
+import  {ISignupState}  from '../types/IAuthState';
+import {IActionChange} from '../types/Actions';
 
-const initState: IAuthState = {
+const initState: ISignupState = {
 		username: '',
 		password: '',
 		email: '',
@@ -12,26 +12,7 @@ const initState: IAuthState = {
 
 export function AuthReducer (
 	state=initState,
-	{ type, payload }: IActionChange): IAuthState {
-	// switch (action.type) {
-	// 	case SET_USERNAME:
-	// 		return {
-	// 			...state,
-	// 			username: action.payload
-	// 		}
-	// 	case SET_PASSWORD:
-	// 		return {
-	// 			...state,
-	// 			password: action.payload
-	// 		}
-	// 	case SET_EMAIL:
-	// 		return {
-	// 			...state,
-	// 			email: action.payload
-	// 		}
-	// 	default:
-	// 		return state
-	// }
+	{ type, payload }: IActionChange): ISignupState {
 	switch (type) {
 		case SET_FORM_FIELD:
 			return {

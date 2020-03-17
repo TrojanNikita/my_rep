@@ -10,7 +10,7 @@ import {AuthReducer} from '../auth/reducers/auth-reducer';
 //typeof reducers
 import { ITodosState } from '../todos/types';
 import  {IModeStatusState}  from '../todos/types';
-import {IAuthState} from '../auth/models/IAuthState';
+import {ISignupState} from '../auth/types/IAuthState';
 
 //generate root reducer
 
@@ -25,7 +25,7 @@ export interface RootState {
 	todos: ITodosState;
 	modeStatus:IModeStatusState;
 	router: RouterState;
-	auth: IAuthState;
+	auth: ISignupState;
 }
 
 

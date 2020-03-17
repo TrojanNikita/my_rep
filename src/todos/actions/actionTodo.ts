@@ -11,14 +11,14 @@ import {fetchData} from '../services/todo-service';
 
 //ThunkActions
 export const addTodoThunk= (label:string):PostActionThunk=>async dispatch => {
-        try {
-                
-                const data= await fetchData('/api/todos/new','POST',{name:label});
-                return dispatch(addTodo(_transformTodo(data)));
-        } catch (data) {
-                console.log(data.message)
-                return dispatch(handleError())               
-        }
+	try {
+
+			const data= await fetchData('/api/todos/new','POST',{name:label});
+			return dispatch(addTodo(_transformTodo(data)));
+	} catch (data) {
+			console.log(data.message)
+			return dispatch(handleError());
+	}
 }
 
 export const toggleTodoThunk = (id:number, done:Boolean):PostActionThunk=>async dispatch => {
