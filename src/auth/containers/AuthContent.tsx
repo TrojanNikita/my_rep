@@ -2,11 +2,13 @@ import { useRouteMatch, useLocation } from "react-router-dom";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { ISignupState } from '../types/IAuthState';
+import { IAuth } from '../types/IAuthState';
 import { getAuth } from '../selectors/auth-selector';
 import { setFormField } from '../actions/actions';
-import {authData, loginData} from './../constants/data'
+import {authWithEmailData, authWithPhoneData} from './../constants/data'
 import AuthPopup from '../components/AuthPopup';
+import SwitchComponentWrapper from './../containers/SwitchComponentWrapper';
+import Button from "../../ui/Button";
 
 
 const AuthContent:React.FC =() => {
@@ -16,14 +18,14 @@ const AuthContent:React.FC =() => {
 	const [confirmPassword, setConfirmPassword] = useState<string>('');
 	const location = useLocation();
 	let dispatch=useDispatch();
-	const auth: ISignupState = useSelector(getAuth);
-	const data = location.pathname === '/auth' ? loginData : authData;
+	const data = authWithEmailData;
+	const auth: IAuth = useSelector(getAuth);
 	console.log(location.pathname);
-	const getValue = (field: keyof ISignupState) => auth[field];
+	const getValue = (field: keyof IAuth) => auth[field];
 
 	const handleChange = useCallback(({ currentTarget: {name, value} }:React.SyntheticEvent<HTMLInputElement>) => {
 		dispatch(
-			setFormField(name as (keyof ISignupState), value)
+			setFormField(name as (keyof IAuth), value)
 		);
 	},[setFormField]);
 
@@ -35,13 +37,21 @@ const AuthContent:React.FC =() => {
 		: setErrorMessage(true);
 	}
 
-	return (<AuthPopup
-			getValue={getValue}
-			inputData={data}
-			hasError={errorMessage}
-			buttonOnClick={handleSubmit}
-			handleChange={handleChange}
-		/>);
+	return (
+		<SwitchComponentWrapper
+			overlayNode={<button></button>}
+		>
+			{() => {
+				return (<AuthPopup
+					getValue={getValue}
+					inputData={authWithEmailData}
+					hasError={errorMessage}
+					buttonOnClick={handleSubmit}
+					handleChange={handleChange}
+				/>);
+			}}
+		</SwitchComponentWrapper>
+	);
 };
 
 export default AuthContent;

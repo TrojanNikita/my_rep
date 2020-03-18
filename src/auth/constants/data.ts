@@ -1,39 +1,30 @@
 import { InputModel } from "../types/InputModel";
-import { ISignupState, ILoginState } from "../types/IAuthState";
+import { IAuth } from "../types/IAuthState";
 
-
-export const authData: InputModel<ISignupState>[]  = [
+export const authWithEmailData: InputModel<IAuth>[]  = [
 	{
-		name: 'name',
-		placeholder: 'Name *'
-	},
-	{
-		name: 'last_name',
-		placeholder: 'Last Name *'
-	},
-	{
-		name: 'username',
-		placeholder: 'Username *'
-	},
-	{
-		name: 'password',
-		placeholder: 'Password *',
-		isHide: true
-	},
-	{
+		id: '1',
 		name: 'email',
-		placeholder: 'Email *',
+		placeholder: 'Email'
+	},
+	{
+		id: '2',
+		name: 'password',
+		placeholder: 'Password',
+		isHide: true
 	}
 ];
 
-export const loginData: InputModel<ILoginState>[]  = [
+export const authWithPhoneData: InputModel<IAuth>[]  = [
 	{
-		name: 'username',
-		placeholder: 'Username *'
+		id: '1',
+		name: 'phone',
+		placeholder: 'Phone'
 	},
 	{
+		id: '2',
 		name: 'password',
-		placeholder: 'Password *',
+		placeholder: 'Password',
 		isHide: true
 	}
 ];

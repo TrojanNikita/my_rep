@@ -1,4 +1,5 @@
-@import '../../../styles/mixins';
+
+@import './../../styles/mixins';
 
 .tabs {
 	box-sizing: border-box;
@@ -64,10 +65,9 @@
 .kind__big {
 	&.tabs {
 		position: relative;
-		background: var(--primary);
 		height: 100%;
-		border-radius: var(--big-border-radius);
-		padding: var(--xx-small-padding);
+		//border-radius: var(--big-border-radius);
+		border-bottom: 1px solid rgb(157, 140, 173);
 	}
 
 	.tab {
@@ -77,12 +77,13 @@
 		font-size: var(--large-font-size);
 		color: var(--on-primary);
 		border: var(--middle-stroke-width) solid transparent;
-		border-radius: calc(var(--big-border-radius) - 2px);
+		//border-radius: calc(var(--big-border-radius) - 2px);
 		position: relative;
 
 		&_active {
-			background: var(--standard-background);
-			color: var(--on-standard-background);
+			border-bottom: 3px solid rgb(159, 126, 185);
+			//background: var(--standard-background);
+			//color: var(--on-standard-background);
 		}
 
 		&__wrapper{
@@ -91,16 +92,14 @@
 				position: absolute;
 				top: 0;
 				left: 0;
-				width: calc(100% - var(--xx-small-padding));
-				height: calc(100% - var(--xx-small-padding));
-				background: var(--primary-dark);
-				color: var(--on-primary-dark);
-				font-size: var(--xxx-large-font-size);
+				// background: var(--primary-dark);
+				// color: var(--on-primary-dark);
+				// font-size: var(--xxx-large-font-size);
 			}
 
-			&:not(:last-child) > .tab {
-				margin-right: var(--x-small-padding);
-			}
+			// &:not(:last-child) > .tab {
+			// 	//margin-right: var(--x-small-padding);
+			// }
 		}
 	}
 }

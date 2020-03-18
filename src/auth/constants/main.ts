@@ -6,6 +6,11 @@ export enum AuthNames {
 	signup,
 }
 
+export enum login {
+	email,
+	phone,
+}
+
 export const sections=[
 	{ 
 		name: AuthNames.login, path: `${BASE_URL}` 

@@ -3,12 +3,12 @@ import Button from '../../ui/Button';
 
 import Input from '../../ui/Input';
 import {InputModel} from '../types/InputModel'
-import { ISignupState } from '../types/IAuthState';
+import { IAuth } from '../types/IAuthState';
 
 interface SignupProps {
 	hasError: boolean;
-	inputData: InputModel<ISignupState>[];
-	getValue: (field: keyof ISignupState) => string;
+	inputData: InputModel<IAuth>[];
+	getValue: (field: keyof IAuth) => string;
 	buttonOnClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 	handleChange: (e:React.FormEvent<HTMLInputElement>)=>void;
 }
