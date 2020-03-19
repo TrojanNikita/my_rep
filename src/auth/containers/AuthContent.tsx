@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IAuth } from '../types/IAuthState';
 import { getAuth } from '../selectors/auth-selector';
 import { setFormField } from '../actions/actions';
-import {authWithEmailData, authWithPhoneData} from './../constants/data'
+import {authWithData} from './../constants/data'
 import AuthPopup from '../components/AuthPopup';
 import SwitchComponentWrapper from './../containers/SwitchComponentWrapper';
 import ClickableIcon from "../../ui/ClickableIcon";
@@ -14,12 +14,13 @@ import { login } from '../constants/main';
 
 const AuthContent:React.FC =() => {
 
-	const {useCallback, useState} = React;
+	const {useCallback, useState, useMemo} = React;
 	const [errorMessage, setErrorMessage] = useState(false);
 	const [confirmPassword, setConfirmPassword] = useState<string>('');
 	const location = useLocation();
 	let dispatch=useDispatch();
-	const data = authWithEmailData;
+	//const data = useMemo((param:number) => authWithData(param), param);
+	//const data = authWithData;
 	const auth: IAuth = useSelector(getAuth);
 	console.log(location.pathname);
 	const getValue = (field: keyof IAuth) => auth[field];
@@ -53,7 +54,7 @@ const AuthContent:React.FC =() => {
 			{({param}) => (
 				<AuthPopup
 					getValue={getValue}
-					inputData={authWithEmailData}
+					inputData={authWithData(param)}
 					hasError={errorMessage}
 					buttonOnClick={handleSubmit}
 					handleChange={handleChange}

@@ -7,10 +7,10 @@ import './global.scss';
 
 
 const render = () => {
-  ReactDOM.render(
-    <App/>,
-    document.getElementById('react-root')
-  )
+	ReactDOM.render(
+	<App/>,
+	document.getElementById('react-root')
+	)
 };
 
 render();

@@ -1,8 +1,17 @@
-export interface IAuth {
-	email:string;
-	phone:string;
+export type IAuth =IPhone & IEmail & IPassword;
+
+export interface IPassword {
 	password: string;
 }
+
+export interface IPhone {
+	phone: string;
+}
+
+export interface IEmail {
+	email: string;
+}
+
 // export interface IAuthWithEmailState extends IAuth {
 // 	email: string;
 // }

@@ -22,11 +22,11 @@ export default function SwitchComponentWrapper({
 	const onLastClick = React.useCallback(() => {
 		switcher!==0
 		? setSwitcher(switcher-1)
-		:setSwitcher(maxParam);
+		:setSwitcher(maxParam-1);
 	}, [switcher]);
 
 	const onNextClick = React.useCallback(() => {
-		switcher===maxParam
+		switcher===maxParam-1
 		? setSwitcher(0)
 		:setSwitcher(switcher+1);
 	}, [switcher]);
