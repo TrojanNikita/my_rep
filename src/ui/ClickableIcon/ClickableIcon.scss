@@ -1,0 +1,49 @@
+@import './../../const';
+@import './../../styles/mixins';
+
+.cliclable-icon {
+	height: 100%;
+	width: 100%;
+	padding: 0 1.125em;
+	border: none;
+	outline: none;
+	padding: 0;
+	font-size: $x-large-font-size;
+	transition-property: opacity;
+	transition-duration: 0.2s;
+	transition-delay: 0.2s;
+
+	background: transparent;
+
+	border: none;
+
+	& * {
+		pointer-events: none;
+	}
+	&:active {
+		background: var(--on-standard-background-standard-button);
+	}
+	&:disabled {
+		pointer-events: none;
+		border: $middle-stroke-width solid var(--standard-button-stroke);
+		opacity: 0.6;
+	}
+	&:hover {
+		opacity: 0.1;
+		cursor: pointer;
+	}
+	&-side {
+		&_default-on-vertical {
+		}
+		&_default-on-horisont {
+		}
+		&_left {
+		}
+		&_right {
+		}
+		&_top {
+		}
+		&_bottom {
+		}
+	}
+}

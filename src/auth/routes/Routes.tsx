@@ -11,7 +11,7 @@ import {BASE_URL, sections} from '../constants/main';
 
 
 export default function Routes() {
-	
+
 	return (
 		<>
 			<Switch>

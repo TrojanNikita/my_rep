@@ -8,7 +8,8 @@ import { setFormField } from '../actions/actions';
 import {authWithEmailData, authWithPhoneData} from './../constants/data'
 import AuthPopup from '../components/AuthPopup';
 import SwitchComponentWrapper from './../containers/SwitchComponentWrapper';
-import Button from "../../ui/Button";
+import ClickableIcon from "../../ui/ClickableIcon";
+import { login } from '../constants/main';
 
 
 const AuthContent:React.FC =() => {
@@ -37,19 +38,27 @@ const AuthContent:React.FC =() => {
 		: setErrorMessage(true);
 	}
 
+	const SWITCH_TITLES = [
+		[login.email],
+		[login.phone],
+	];
+
 	return (
 		<SwitchComponentWrapper
-			overlayNode={<button></button>}
+			location='row'
+			lastNode={({onClick}) =>(<ClickableIcon onClick={onClick} />)}
+			nextNode={({onClick}) =>(<ClickableIcon onClick={onClick} />)}
+			max_params={SWITCH_TITLES.length}
 		>
-			{() => {
-				return (<AuthPopup
+			{({param}) => (
+				<AuthPopup
 					getValue={getValue}
 					inputData={authWithEmailData}
 					hasError={errorMessage}
 					buttonOnClick={handleSubmit}
 					handleChange={handleChange}
-				/>);
-			}}
+				/>
+			)}
 		</SwitchComponentWrapper>
 	);
 };

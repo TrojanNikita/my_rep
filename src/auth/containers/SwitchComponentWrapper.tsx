@@ -1,51 +1,41 @@
 import * as React from 'react';
-import { useLocation, useHistory } from 'react-router';
-import { IWithKind } from '../../ui/Tabs/withKind';
-import { IWithChildrenProvider } from '../../ui/Tabs/withChildrenProvider';
-import { login } from '../constants/main';
-import {sections} from '../constants/main';
-
+import styles from './switcher.scss';
 
 interface ISwitchComponentProps {
-	chldren: React.FunctionComponent<{param?:number}>;
-	overlayNode: React.FunctionComponent<{onClick: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void}>;
+	location?: "row" | "column";
+	children: React.FunctionComponent<{param: number}>;
+	lastNode: React.FunctionComponent<{onClick: () => void}>;
+	nextNode: React.FunctionComponent<{onClick: () => void}>;
+	max_params: number;
 }
-//, 	
-
-const SWITCH_TITLES = [
-	[login.email],
-	[login.phone],
-];
 
 export default function SwitchComponentWrapper({
-	chldren:Content, overlayNode:Switcher}: 
-ISwitchComponentProps) {
-	
-	let p=0;
+	location="column",
+	children: Content,
+	lastNode: Last,
+	nextNode: Next,
+	max_params: maxParam,
+}:ISwitchComponentProps) {
 
-	const onLastClick = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
-		event.preventDefault();
-		p===SWITCH_TITLES.length? --p:SWITCH_TITLES.length;
-	}, []);
-	const onNextClick = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
-		event.preventDefault();
-		p===SWITCH_TITLES.length? 0:++p;
-	}, []);
+	const [switcher, setSwitcher] = React.useState<number>(0);
 
+	const onLastClick = React.useCallback(() => {
+		switcher!==0
+		? setSwitcher(switcher-1)
+		:setSwitcher(maxParam);
+	}, [switcher]);
 
+	const onNextClick = React.useCallback(() => {
+		switcher===maxParam
+		? setSwitcher(0)
+		:setSwitcher(switcher+1);
+	}, [switcher]);
 
 	return (
-		<>
-			<Switcher onClick={onLastClick}/>
-			<Content
-				param={p}
-			/>
-			<Switcher onClick={onNextClick}/>
-		</>
+		<div className={styles.switcher} style={{flexDirection: location}}>
+			<div className={styles.switcherLast}><Last onClick={onLastClick}/></div>
+			<Content param={switcher} />
+			<div className={styles.switcherNext}><Next onClick={onNextClick}/></div>
+		</div>
 	);
 }
-
-
-{/* <Switcher onClick={onLastClick}/>
-
-<Switcher onClick={onNextClick}/> */}

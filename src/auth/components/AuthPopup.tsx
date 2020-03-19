@@ -16,7 +16,7 @@ interface SignupProps {
 function AuthPopup ({getValue, hasError, inputData, buttonOnClick, handleChange}: SignupProps) {
 
 	return (
-		<>
+		<div>
 			<form className="auth-form__content">
 				{inputData.map(({name, placeholder, isHide})=>
 					<Input
@@ -37,7 +37,7 @@ function AuthPopup ({getValue, hasError, inputData, buttonOnClick, handleChange}
 			>
 				Signup
 			</Button>
-		</>
+		</div>
 	);
 };
 
