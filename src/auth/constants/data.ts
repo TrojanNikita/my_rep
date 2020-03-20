@@ -17,7 +17,7 @@ export const logins : InputModel<IEmail & IPhone>[] = [
 ];
 
 
-export const authWithData:(param:number) => InputModel<IPassword & IEmail & IPhone>[]   =(param)=> [
+export const authWithData:(param:number) => InputModel<IPassword & IEmail & IPhone>[]=(param)=> [
 	logins[param],
 	{
 		id: '2',

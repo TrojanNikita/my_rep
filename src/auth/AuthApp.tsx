@@ -5,7 +5,6 @@ import styles from './auth-app.scss';
 import Routes from './routes/Routes';
 import Navigation from './containers/Navigation';
 import Tabs from '../ui/Tabs';
- 
 
 const AuthApp = () => {
 

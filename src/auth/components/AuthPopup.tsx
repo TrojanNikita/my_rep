@@ -15,20 +15,24 @@ interface SignupProps {
 
 function AuthPopup ({getValue, hasError, inputData, buttonOnClick, handleChange}: SignupProps) {
 
+
+	const inputs = React.useMemo(() => inputData.map(({name, placeholder, isHide})=>
+		<Input
+			key={name}
+			name={name}
+			type={isHide? 'password': undefined}
+			placeholder={placeholder}
+			value={getValue(name)}
+			onChange={handleChange}
+			data-error={hasError? 'Не удалось войти': undefined}
+		/>
+	), [inputData,hasError,getValue,buttonOnClick, handleChange]);
+
+
 	return (
 		<div>
 			<form className="auth-form__content">
-				{inputData.map(({name, placeholder, isHide})=>
-					<Input
-						key={name}
-						name={name}
-						type={isHide? 'password': undefined}
-						placeholder={placeholder}
-						value={getValue(name)}
-						onChange={handleChange}
-						data-error={hasError? 'Не удалось войти': undefined}
-					/>
-				)}
+				{inputs}
 			</form>
 			<Button
 					kind='default'
