@@ -1,3 +1,4 @@
+import { hot } from 'react-hot-loader/root';
 import * as React from 'react';
 import routes from './routes/routes';
 import { ConnectedRouter } from 'connected-react-router';
@@ -16,4 +17,4 @@ const App = () => {
 	)
 };
 
-export default App;
+export default hot(App);

@@ -65,3 +65,22 @@ const AuthContent:React.FC =() => {
 };
 
 export default AuthContent;
+
+
+
+{/* <SwitchComponentWrapper
+location='row'
+lastNode={({onClick}) =>(<ClickableIcon onClick={onClick} />)}
+nextNode={({onClick}) =>(<ClickableIcon onClick={onClick} />)}
+max_params={SWITCH_TITLES.length}
+>
+{({param}) => (
+	<AuthPopup
+		getValue={getValue}
+		inputData={authWithData(param)}
+		hasError={errorMessage}
+		buttonOnClick={handleSubmit}
+		handleChange={handleChange}
+	/>
+)}
+</SwitchComponentWrapper> */}
