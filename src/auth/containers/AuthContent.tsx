@@ -15,54 +15,24 @@ import { InputModel } from "../types/InputModel";
 const AuthContent:React.FC =() => {
 
 	const {useCallback, useState, useMemo} = React;
-	const [errorMessage, setErrorMessage] = useState(false);
-	const [confirmPassword, setConfirmPassword] = useState<string>('');
-	const location = useLocation();
-	let dispatch=useDispatch();
-	//const data = useMemo((param:number) => authWithData(param), param);
-	//const data = authWithData;
-	const auth: IAuth = useSelector(getAuth);
-	console.log(location.pathname);
-	const getValue = (field: keyof IAuth) => auth[field];
+	const [email, setEmail] = useState('');
 
-	const handleChange = useCallback(({ currentTarget: {name, value} }:React.SyntheticEvent<HTMLInputElement>) => {
-		dispatch(
-			setFormField(name as (keyof IAuth), value)
-		);
-	},[setFormField]);
-
-	function handleSubmit() {
-		const {password} = auth;
-
-		password === confirmPassword
-		? null
-		: setErrorMessage(true);
+	const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
+		setEmail(e.currentTarget.value);
 	}
 
-	const SWITCH_TITLES = [
-		[login.email],
-		[login.phone],
-	];
+	function renderInput() {
+		return <input id="item1" value={email} onChange={handleChange}/>;
+	}
 
-
-	console.log('gen');
 	return (
-		<SwitchComponentWrapper
-		location='row'
-		lastNode={({onClick}) =>(<ClickableIcon onClick={onClick} />)}
-		nextNode={({onClick}) =>(<ClickableIcon onClick={onClick} />)}
-		max_params={SWITCH_TITLES.length}
-		>
-		{({param}) => (
-			<AuthPopup
-			getValue={getValue}
-			inputData={React.useMemo(()=> authWithData(param),[param])}
-			hasError={errorMessage}
-			buttonOnClick={handleSubmit}
-			handleChange={handleChange}
-		/>
-		)}
+		<div>
+		<SwitchComponentWrapper>
+			{() => (
+				<input ref="stuff" value={email} onChange={handleChange}></input>
+			)}
 		</SwitchComponentWrapper>
+		</div>
 	);
 };
 
