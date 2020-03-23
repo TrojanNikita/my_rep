@@ -32,17 +32,10 @@ export default function SwitchComponentWrapper({
 	}, [switcher]);
 
 	return (
-		<Content param={switcher} />
-	);
-}
-
-
-{/* <div className={styles.switcher} style={{flexDirection: location}}>
+		<div className={styles.switcher} style={{flexDirection: location}}>
 			<div className={styles.switcherLast}><Last onClick={onLastClick}/></div>
 			<Content param={switcher} />
 			<div className={styles.switcherNext}><Next onClick={onNextClick}/></div>
-		</div> */}
-
-		// return (
-		// 	Content
-		// );
+		</div>
+	);
+}

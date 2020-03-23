@@ -1,14 +1,20 @@
+@import './../../const';
+
 .switcher {
 	width: 100%;
 	height: 100%;
 	display: flex;
 
 	&_last {
-		color: red;
 		flex: 1;
+		&:hover{
+			background: var(--on-standard-background-standard-button);
+		}
 	}
 	&_next {
-		color: red;
 		flex: 1;
+		&:hover{
+			opacity: 0.6;
+		}
 	}
 }

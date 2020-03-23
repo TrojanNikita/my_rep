@@ -4,19 +4,41 @@ import Button from '../../ui/Button';
 import Input from '../../ui/Input';
 import {InputModel} from '../types/InputModel'
 import { IAuth } from '../types/IAuthState';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAuth } from '../selectors/auth-selector';
+import { setFormField } from '../actions/actions';
+import {authWithData as inputData} from './../constants/data';
 
+// TODO: сделать логичный параметр
 interface SignupProps {
-	hasError: boolean;
-	inputData: InputModel<IAuth>[];
-	getValue: (field: keyof IAuth) => string;
-	buttonOnClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-	handleChange: (e:React.FormEvent<HTMLInputElement>)=>void;
+	login: number;
 }
 
-function AuthPopup ({getValue, hasError, inputData, buttonOnClick, handleChange}: SignupProps) {
+function AuthPopup ({ login }: SignupProps) {
 
+	const {useState, useCallback} = React;
 
-	const inputs = React.useMemo(() => inputData.map(({name, placeholder, isHide})=>
+	let dispatch=useDispatch();
+	const [errorMessage, setErrorMessage] = useState(false);
+
+	const auth: IAuth = useSelector(getAuth);
+	const getValue: ((field: keyof IAuth) => string)= (field: keyof IAuth) => auth[field];
+
+	const handleChange = useCallback(({ currentTarget: {name, value} }:React.SyntheticEvent<HTMLInputElement>) => {
+		dispatch(
+			setFormField(name as (keyof IAuth), value)
+		);
+	},[setFormField]);
+
+	function handleSubmit() {
+		const {password} = auth;
+
+		password === 'sfs'
+		? null
+		: setErrorMessage(true);
+	}
+
+	const inputs = React.useMemo(() => inputData(login).map(({name, placeholder, isHide})=>
 		<Input
 			key={name}
 			name={name}
@@ -24,9 +46,9 @@ function AuthPopup ({getValue, hasError, inputData, buttonOnClick, handleChange}
 			placeholder={placeholder}
 			value={getValue(name)}
 			onChange={handleChange}
-			data-error={hasError? 'Не удалось войти': undefined}
+			data-error={errorMessage? 'Не удалось войти': undefined}
 		/>
-	), [inputData,hasError,getValue,buttonOnClick, handleChange]);
+	), [inputData,errorMessage,getValue, handleChange]);
 
 
 	return (
@@ -37,7 +59,7 @@ function AuthPopup ({getValue, hasError, inputData, buttonOnClick, handleChange}
 			<Button
 					kind='default'
 					type='button'
-					onClick={buttonOnClick}
+					onClick={handleSubmit}
 			>
 				Signup
 			</Button>
