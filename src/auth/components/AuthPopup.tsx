@@ -2,14 +2,14 @@ import * as React from 'react';
 import Button from '../../ui/Button';
 
 import Input from '../../ui/Input';
-import {InputModel} from '../types/InputModel'
 import { IAuth } from '../types/IAuthState';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAuth } from '../selectors/auth-selector';
+import { getAuth, getButtonName } from '../selectors/auth';
 import { setFormField } from '../actions/actions';
 import {authWithData as inputData} from './../constants/data';
 
 // TODO: сделать логичный параметр
+// Судя по всему в этом файле больше всего логики, то есть глупо тут играть с числовым значением login
 interface SignupProps {
 	login: number;
 }
@@ -17,11 +17,11 @@ interface SignupProps {
 function AuthPopup ({ login }: SignupProps) {
 
 	const {useState, useCallback} = React;
-
 	let dispatch=useDispatch();
-	const [errorMessage, setErrorMessage] = useState(false);
-
 	const auth: IAuth = useSelector(getAuth);
+	const [errorMessage, setErrorMessage] = useState(false);
+	const buttonLabel = useSelector(getButtonName);
+
 	const getValue: ((field: keyof IAuth) => string)= (field: keyof IAuth) => auth[field];
 
 	const handleChange = useCallback(({ currentTarget: {name, value} }:React.SyntheticEvent<HTMLInputElement>) => {
@@ -50,7 +50,6 @@ function AuthPopup ({ login }: SignupProps) {
 		/>
 	), [inputData,errorMessage,getValue, handleChange]);
 
-
 	return (
 		<div>
 			<form className="auth-form__content">
@@ -61,7 +60,7 @@ function AuthPopup ({ login }: SignupProps) {
 					type='button'
 					onClick={handleSubmit}
 			>
-				Signup
+				{buttonLabel}
 			</Button>
 		</div>
 	);

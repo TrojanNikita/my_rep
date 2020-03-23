@@ -1,18 +1,16 @@
 import {SET_FORM_FIELD} from '../constants/actions';
-import  {ISignupState}  from '../types/IAuthState';
+import  {IAuth}  from '../types/IAuthState';
 import {IActionChange} from '../types/Actions';
 
-const initState: ISignupState = {
-		username: '',
+const initState: IAuth = {
 		password: '',
 		email: '',
-		name: '',
-		last_name: '',
+		phone: '',
 };
 
 export default function authReducer (
 	state=initState,
-	{ type, payload }: IActionChange): ISignupState {
+	{ type, payload }: IActionChange): IAuth {
 	switch (type) {
 		case SET_FORM_FIELD:
 			return {

@@ -1,10 +1,10 @@
 import * as types from './../constants/actions';
 
 import {IActionChange} from '../types/Actions';
-import { IAuthState } from '../types/IAuthState';
+import { IAuth } from '../types/IAuthState';
 
 export const setFormField=(
-	fieldName: keyof IAuthState,
+	fieldName: keyof IAuth,
 	value: string,
 ): IActionChange=>({
 	type: types.SET_FORM_FIELD,
