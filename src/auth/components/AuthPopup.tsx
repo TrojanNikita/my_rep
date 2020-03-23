@@ -7,6 +7,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAuth, getButtonName } from '../selectors/auth';
 import { setFormField } from '../actions/actions';
 import {authWithData as inputData} from './../constants/data';
+import {SignUpForm} from './../types/IAuthState';
+import { useForm } from '../hooks/useForm';
+import { pipe } from 'fp-ts/lib/pipeable';
+import { constVoid } from 'fp-ts/lib/function';
+import * as E from 'fp-ts/lib/Either';
 
 // TODO: сделать логичный параметр
 // Судя по всему в этом файле больше всего логики, то есть глупо тут играть с числовым значением login
@@ -16,52 +21,46 @@ interface SignupProps {
 
 function AuthPopup ({ login }: SignupProps) {
 
-	const {useState, useCallback} = React;
-	let dispatch=useDispatch();
-	const auth: IAuth = useSelector(getAuth);
-	const [errorMessage, setErrorMessage] = useState(false);
-	const buttonLabel = useSelector(getButtonName);
-
-	const getValue: ((field: keyof IAuth) => string)= (field: keyof IAuth) => auth[field];
-
-	const handleChange = useCallback(({ currentTarget: {name, value} }:React.SyntheticEvent<HTMLInputElement>) => {
-		dispatch(
-			setFormField(name as (keyof IAuth), value)
-		);
-	},[setFormField]);
-
-	function handleSubmit() {
-		const {password} = auth;
-
-		password === 'sfs'
-		? null
-		: setErrorMessage(true);
-	}
-
-	const inputs = React.useMemo(() => inputData(login).map(({name, placeholder, isHide})=>
-		<Input
-			key={name}
-			name={name}
-			type={isHide? 'password': undefined}
-			placeholder={placeholder}
-			value={getValue(name)}
-			onChange={handleChange}
-			data-error={errorMessage? 'Не удалось войти': undefined}
-		/>
-	), [inputData,errorMessage,getValue, handleChange]);
+	const form = useForm(
+		SignUpForm,
+		{
+		  email: '',
+		},
+		{
+			handleSubmit(form) {
+			  pipe(
+				form.validated,
+				E.fold(constVoid, data => {
+				  form.disable();
+				  // Simulate async sign up.
+				  setTimeout(() => {
+					form.enable();
+					if (data.email === 'a@a.com') {
+					  form.setAsyncErrors({ email: ['UniqueEmail'] });
+					} else {
+					  alert(JSON.stringify(data, null, 2));
+					  form.reset();
+					}
+				  }, 1000);
+				}),
+			  );
+			},
+		},
+	);
 
 	return (
 		<div>
 			<form className="auth-form__content">
-				{inputs}
+				<Input
+					key={name}
+					name={name}
+					type={isHide? 'password': undefined}
+					placeholder={placeholder}
+					value={getValue(name)}
+					onChange={handleChange}
+					data-error={errorMessage? 'Не удалось войти': undefined}
+				/>
 			</form>
-			<Button
-					kind='default'
-					type='button'
-					onClick={handleSubmit}
-			>
-				{buttonLabel}
-			</Button>
 		</div>
 	);
 };

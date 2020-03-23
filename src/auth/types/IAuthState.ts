@@ -1,4 +1,13 @@
+import * as t from 'io-ts';
+import {Email, UniqueEmail} from './models';
+
 export type IAuth =IPhone & IEmail & IPassword;
+
+
+export const SignUpForm = t.type({
+	// Because of UniqueEmail, we can set async error 'UniqueEmail'.
+	email: t.union([Email, UniqueEmail]),
+  });
 
 export interface IPassword {
 	password: string;
