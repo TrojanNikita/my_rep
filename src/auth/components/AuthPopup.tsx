@@ -4,23 +4,25 @@ import Button from '../../ui/Button';
 import Input from '../../ui/Input';
 import { IAuth } from '../types/IAuthState';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAuth, getButtonName } from '../selectors/auth';
+import { getAuth } from '../selectors/auth';
 import { setFormField } from '../actions/actions';
 import {authWithData as inputData} from './../constants/data';
+import classNames from 'classnames';
 
 // TODO: сделать логичный параметр
 // Судя по всему в этом файле больше всего логики, то есть глупо тут играть с числовым значением login
 interface SignupProps {
+	classNamesWrapper?: string;
+	classNamesForm?: string;
 	login: number;
 }
 
-function AuthPopup ({ login }: SignupProps) {
+function AuthPopup ({ login, classNamesWrapper, classNamesForm }: SignupProps) {
 
 	const {useState, useCallback} = React;
 	let dispatch=useDispatch();
 	const auth: IAuth = useSelector(getAuth);
 	const [errorMessage, setErrorMessage] = useState(false);
-	const buttonLabel = useSelector(getButtonName);
 
 	const getValue: ((field: keyof IAuth) => string)= (field: keyof IAuth) => auth[field];
 
@@ -29,14 +31,6 @@ function AuthPopup ({ login }: SignupProps) {
 			setFormField(name as (keyof IAuth), value)
 		);
 	},[setFormField]);
-
-	function handleSubmit() {
-		const {password} = auth;
-
-		password === 'sfs'
-		? null
-		: setErrorMessage(true);
-	}
 
 	const inputs = React.useMemo(() => inputData(login).map(({name, placeholder, isHide})=>
 		<Input
@@ -51,17 +45,10 @@ function AuthPopup ({ login }: SignupProps) {
 	), [inputData,errorMessage,getValue, handleChange]);
 
 	return (
-		<div>
-			<form className="auth-form__content">
+		<div className={classNamesWrapper}>
+			<form className={classNames('auth-form__content', classNamesForm)}>
 				{inputs}
 			</form>
-			<Button
-					kind='default'
-					type='button'
-					onClick={handleSubmit}
-			>
-				{buttonLabel}
-			</Button>
 		</div>
 	);
 };

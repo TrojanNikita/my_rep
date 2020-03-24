@@ -18,6 +18,12 @@ $large-font-size: 2.25rem;
 $middle-font-size: 1.25rem;
 $small-font-size: 0.75rem;
 
+$gradient-color-left: rgb(219, 195, 198);
+$gradient-color-right:rgb(191, 197, 243);
+
+$gradient-color-dark: rgb(206, 183, 186);
+
+
 //Внутри инпута
 $placeholder: rgb(186, 170, 199);
 
@@ -30,7 +36,10 @@ $input-height: 40px;
 
 $x-large-font-size: 1rem; // 32px
 $xx-large-font-size: 2.25rem; // 36px
-	
+
+
+$slide-width: 200px;
+$slide-height: 200px;
 
 //Минимальная высота заголовков
 $small-section-height: 100px;

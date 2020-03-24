@@ -1,9 +1,9 @@
 import * as types from '../constants/actions';
-import { IAuthState } from './IAuthState';
+import { IAuth } from './IAuthState';
 interface IFormFieldChange {
 	type: typeof types.SET_FORM_FIELD;
 	payload: {
-		fieldName: keyof IAuthState,
+		fieldName: keyof IAuth,
 		value: string
 	};
 }

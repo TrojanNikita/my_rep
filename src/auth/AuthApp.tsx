@@ -5,8 +5,13 @@ import styles from './auth-app.scss';
 import Routes from './routes/Routes';
 import Navigation from './containers/Navigation';
 import Tabs from '../ui/Tabs';
+import Button from '../ui/Button';
+import { useSelector } from 'react-redux';
+import { getButtonName } from './selectors/auth';
 
 const AuthApp = () => {
+
+	const buttonLabel = useSelector(getButtonName);
 
 	return (
 		<main className={pageStyles.pageContainer}>
@@ -19,6 +24,12 @@ const AuthApp = () => {
 				</nav>
 				<section className={styles.authPageCenterContent}>
 					<Routes />
+					<Button
+						kind='default'
+						type='button'
+					>
+						{buttonLabel}
+					</Button>
 				</section>
 			</div>
 		</main>
