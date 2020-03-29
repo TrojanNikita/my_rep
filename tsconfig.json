@@ -1,20 +1,20 @@
 {
-    "compilerOptions": {
-        "outDir": "./dist/",
-        "sourceMap": true,
-        "strict": true,
-        "noImplicitReturns": true,
-        "noImplicitAny": true,
-        "module": "es6",
-        "moduleResolution": "node",
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true,
-        "target": "es5",
-        "plugins": [{ "name": "typescript-plugin-css-modules" }],
-        "allowJs": true,
-        "jsx": "react",
-    },
-    "include": [
-        "./src/**/*"
-    ]
+	"compilerOptions": {
+		"outDir": "./dist/",
+		"sourceMap": true,
+		"strict": true,
+		"noImplicitReturns": true,
+		"noImplicitAny": true,
+		"module": "es6",
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"target": "es5",
+		"plugins": [{ "name": "typescript-plugin-css-modules" }],
+		"allowJs": true,
+		"jsx": "react",
+	},
+	"include": [
+		"./src/**/*", "webpack.config.babel.js"
+	]
 }

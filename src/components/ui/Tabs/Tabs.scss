@@ -1,0 +1,105 @@
+@import './../../../const';
+@import './../../../styles/mixins';
+
+.tabs {
+	box-sizing: border-box;
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+	max-width: 100vw;
+
+	&::-webkit-scrollbar {
+		display: none;
+		width: 0;
+	}
+}
+
+.tab {
+	all: unset;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+
+	& > * {
+		pointer-events: none;
+	}
+
+	&_active {
+		pointer-events: none;
+	}
+
+	&__wrapper {
+		display: contents;
+	}
+}
+
+.kind_small {
+	&.tabs {
+		min-height: var(--medium-touchable-element-height);
+		max-height: var(--medium-touchable-element-height);
+		position: relative;
+		background: var(--standard-background);
+		padding: var(--x-small-padding) var(--x-large-padding);
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+	}
+	
+	.tab {
+		font-size: var(--x-middle-font-size);
+		color: var(--on-navigation-background);
+		padding: 0 1em;
+		white-space: nowrap;
+		border: var(--middle-stroke-width) solid transparent;
+		border-radius: var(--big-border-radius);
+
+		&_active {
+			background: var(--on-standard-background-standard-button);
+			color: var(--on-standard-button);
+			border-color: var(--standard-button-stroke);
+		}
+	}
+}
+
+.kind__big {
+	&.tabs {
+		position: relative;
+		height: 100%;
+		//border-radius: var(--big-border-radius);
+		border-bottom: 1px solid rgb(157, 140, 173);
+	}
+
+	.tab {
+		@include overflow-ellipsis;
+
+		flex-grow: 1;
+		font-size: var(--large-font-size);
+		color: var(--on-primary);
+		border: var(--middle-stroke-width) solid transparent;
+		//border-radius: calc(var(--big-border-radius) - 2px);
+		position: relative;
+
+		&_active {
+			border-bottom: 3px solid rgb(159, 126, 185);
+			//background: var(--standard-background);
+			//color: var(--on-standard-background);
+		}
+
+		&__wrapper{
+			&:only-child > .tab_active,
+			&:only-child > .tab {
+				position: absolute;
+				top: 0;
+				left: 0;
+				// background: var(--primary-dark);
+				// color: var(--on-primary-dark);
+				// font-size: var(--xxx-large-font-size);
+			}
+
+			// &:not(:last-child) > .tab {
+			// 	//margin-right: var(--x-small-padding);
+			// }
+		}
+	}
+}

@@ -5,6 +5,8 @@ storage.json
 coverage/
 dist/bundle.js
 node_modules/
+logs/
+blob_storage/
 *.log
 .metals
 .vscode/

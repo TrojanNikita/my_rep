@@ -3,9 +3,9 @@ import 'regenerator-runtime/runtime';
 import * as React from 'react';
 import {render} from "react-dom";
 
-import App from './app';
+import App from './App';
 
-import './global.scss';
+import './styles/global.scss';
 
 
 const root = document.createElement('div')

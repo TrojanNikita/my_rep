@@ -1,0 +1,15 @@
+.nav-bar{
+
+    padding: var(--xx-small-padding);
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	white-space: nowrap;
+}
+
+.element {
+	box-sizing: border-box;
+	transition-property: opacity;
+	transition-duration: 0.3s;
+}

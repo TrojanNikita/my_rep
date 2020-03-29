@@ -1,0 +1,63 @@
+@import './../../../const';
+
+.switcher {
+	width: 100%;
+	height: 100%;
+	display: flex;
+
+	&_last {
+		flex: 1;
+		&:hover{
+			background: linear-gradient(to left, transparent, $gradient-color-left + 1);
+		}
+	}
+	&_next {
+		flex: 1;
+		&:hover{
+			background: linear-gradient(to right, transparent, $gradient-color-right + 2);
+		}
+	}
+	&_content {
+
+		&_init {
+
+			position: relative;
+			animation-name: right;
+			animation-duration: 1s;
+			animation-delay: 3;
+			animation-timing-function: linear;
+		}
+		&_left {
+			position: relative;
+			left: 0;
+			animation-name: left;
+			animation-duration: 0.5s;
+			animation-timing-function: linear;
+		}
+		&_right {
+			position: relative;
+			left: 0;
+			animation-name: right;
+			animation-duration: 0.5s;
+			animation-timing-function: linear;
+		}
+	}
+}
+
+@keyframes left {
+	0%{
+		left: 0;
+	}
+	100%{
+		left: -500px;
+	}
+}
+
+@keyframes right {
+	0%{
+		left: 0;
+	}
+	100%{
+		left: 500px;
+	}
+}
