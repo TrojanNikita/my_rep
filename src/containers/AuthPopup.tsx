@@ -2,7 +2,7 @@ import * as React from 'react';
 import Button from '../components/ui/Button';
 
 import Input from '../components/ui/Input';
-import { IAuth } from '../types/IAuthState';
+import { IAuth } from '../reducers/auth';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAuth } from '../selectors/auth';
 import { setFormField } from '../actions/auth';

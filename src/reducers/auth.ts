@@ -1,6 +1,11 @@
 import {SET_FORM_FIELD} from '../constants/actions';
-import  {IAuth}  from '../types/IAuthState';
 import {IActionChange} from '../types/Actions';
+
+export interface IAuth {
+	email: string;
+	phone: string;
+	password: string;
+};
 
 const initState: IAuth = {
 		password: '',

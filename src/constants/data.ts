@@ -1,9 +1,9 @@
 import { InputModel } from "../types/InputModel";
-import { IAuth, IEmail, IPhone, IPassword } from "../types/IAuthState";
+import { IAuth } from "../reducers/auth";
 
 
 // TODO: Пока что это ужасный и медленный файл, сделать так чтоб поля объявлялись в одном месте
-export const logins : InputModel<IEmail & IPhone>[] = [
+export const logins : InputModel<IAuth>[] = [
 	{
 		id: 'email',
 		name: 'email',
@@ -16,7 +16,7 @@ export const logins : InputModel<IEmail & IPhone>[] = [
 	},
 ];
 
-export const authWithData:(param:number) => InputModel<IPassword & IEmail & IPhone>[]=(param)=> [
+export const authWithData:(param:number) => InputModel<IAuth>[]=(param)=> [
 	logins[param],
 	{
 		id: 'password',

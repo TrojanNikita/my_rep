@@ -4,16 +4,29 @@ Empty project.
 
 ## Building and running on localhost
 
+*НЕБОЛЬШИЕ ФИШКИ ПО РАЗРАБОТКЕ:*
+Вся основная логика находится на страницах /pages
+Они включают в себя контейнеры --- компоненты с сайдэффектами,
+с некоторой логикой, которую трудно вынести на страницу.
+Так же и страницы, и контейнеры состоят из "чистых" ui компонентов, только для рисования,
+примеры ui компонентов, используемых в проекте можно найти здесь:
+localhost:3000/style
+
+При добавлении ui компонент, добавляем и в style
+
+Рекомендуется начинать со страниц/типов/данных
+
+*БЫСТРЫЙ СТАРТ:*
 First install dependencies:
 
 ```sh
-npm install
+yarn install
 ```
 
 To run in hot module reloading mode:
 
 ```sh
-npm start
+yarn start
 ```
 
 To create a production build:
@@ -30,8 +43,4 @@ npm run build-dev
 
 ## Running
 
-Open the file `dist/index.html` in your browser
-
-## Credits
-
-Made with [createapp.dev](https://createapp.dev/)
+Open localhost:3000

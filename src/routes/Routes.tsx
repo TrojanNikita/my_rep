@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthPage from '../pages/AuthApp';
+import StyleGuidePage from '../pages/StyleGuidePage';
 
 
 import {BASE_URL, URLS as AUTH_URLS} from '../constants/main';
@@ -8,7 +9,7 @@ import {BASE_URL, URLS as AUTH_URLS} from '../constants/main';
 const Routes = (
 	<Switch>
 		<Route exact path={AUTH_URLS.map(URL=>URL.path)} component={AuthPage} />
-		<Redirect to={BASE_URL} />
+		<Route path="/style" component={StyleGuidePage} />
 	</Switch>
 );
 

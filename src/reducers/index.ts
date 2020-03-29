@@ -3,9 +3,8 @@ import { combineReducers } from 'redux';
 import { History } from 'history';
 
 //reducers
-import authReducer from './auth';
+import authReducer, {IAuth} from './auth';
 //typeof reducers
-import {IAuth} from '../types/IAuthState';
 
 //generate root reducer
 

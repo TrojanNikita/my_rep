@@ -1,5 +1,5 @@
 import * as types from '../constants/actions';
-import { IAuth } from './IAuthState';
+import { IAuth } from './../reducers/auth';
 interface IFormFieldChange {
 	type: typeof types.SET_FORM_FIELD;
 	payload: {
@@ -7,16 +7,4 @@ interface IFormFieldChange {
 		value: string
 	};
 }
-//Union action for todos
-
 export type IActionChange = IFormFieldChange;
-
-
-
-// IUsernameChange
-// | IPasswordChange
-// | IEmailChange
-// | INameChange
-// | ILastnameChange
-// | IConfirmPasswordChange
-// |

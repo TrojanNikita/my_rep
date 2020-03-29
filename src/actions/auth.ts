@@ -1,7 +1,7 @@
 import * as types from '../constants/actions';
 
 import {IActionChange} from '../types/Actions';
-import { IAuth } from '../types/IAuthState';
+import { IAuth } from '../reducers/auth';
 
 export const setFormField=(
 	fieldName: keyof IAuth,
