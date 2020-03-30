@@ -2,19 +2,14 @@ import * as React from 'react';
 import { useLocation, useHistory } from 'react-router';
 import { IWithKind } from '../components/ui/Tabs/withKind';
 import { IWithChildrenProvider } from '../components/ui/Tabs/withChildrenProvider';
-import { AuthNames } from '../constants/main';
-import {URLS} from '../constants/main';
+import {Route} from '../types/Route'
 
 type Children = React.FunctionComponent<IWithChildrenProvider & IWithKind & React.HTMLAttributes<HTMLElement>>;
 
-const TABS_TITLES = {
-	[AuthNames.login]: 'Log In',
-	[AuthNames.signup]: 'Sign Up',
-};
-
 export default function Navigation({
 	children: NavView,
-}: {children: Children}) {
+	URLS,
+}: {children: Children, URLS: Route[]}) {
 	const location = useLocation();
 	const history = useHistory();
 
@@ -29,7 +24,7 @@ export default function Navigation({
 	const navTabs = React.useMemo(() => URLS.map((tab) => ({
 		htmlAttributes: {
 			'data-value': tab.path,
-			children: TABS_TITLES[tab.name],
+			children: tab.description,
 			href: tab.path,
 		},
 	})), [URLS]);

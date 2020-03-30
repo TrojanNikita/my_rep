@@ -1,3 +1,5 @@
+import { Route } from "../types/Route";
+
 export const BASE_URL = '/auth';
 
 
@@ -11,11 +13,11 @@ export enum login {
 	phone,
 }
 
-export const URLS = [
+export const URLS: Route[] = [
 	{
-		name: AuthNames.login, path: `${BASE_URL}`
+		name: 'login', description: 'Log In', path: `${BASE_URL}`
 	},
 	{
-		name: AuthNames.signup, path: `${BASE_URL}/sign`
+		name: 'signup', description: 'Sign Up', path: `${BASE_URL}/sign`
 	}
 ];

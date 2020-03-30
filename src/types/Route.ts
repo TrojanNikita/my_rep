@@ -1,6 +1,5 @@
 export interface Route{
-	id: string;
+	name: string;
 	path: string;
 	description: string;
-	exact: boolean;
 }

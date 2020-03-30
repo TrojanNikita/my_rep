@@ -10,6 +10,7 @@ import AuthPopup from './../containers/AuthPopup';
 import Switcher from '../components/ui/Switcher';
 import ClickableIcon from "../components/ui/ClickableIcon";
 import {logins} from '../constants/data';
+import { URLS } from '../constants/main';
 
 const AuthApp = () => {
 
@@ -23,21 +24,21 @@ const AuthApp = () => {
 					Welcome ...
 				</div>
 				<nav className={styles.authPageCenterNav}>
-					<Navigation>{Tabs}</Navigation>
+					<Navigation URLS={URLS}>{Tabs}</Navigation>
 				</nav>
 				<section className={styles.authPageCenterContent}>
-				<Switcher
-					location='row'
-					lastNode={({onClick}) =>(<ClickableIcon onClick={onClick} />)}
-					nextNode={({onClick}) =>(<ClickableIcon onClick={onClick} />)}
-					max_params={logins.length}
-				>
-					{({param}) => (
-						<AuthPopup
-							login={param}
-						/>
-					)}
-				</Switcher>
+					<Switcher
+						location='row'
+						lastNode={({onClick}) =>(<ClickableIcon onClick={onClick} />)}
+						nextNode={({onClick}) =>(<ClickableIcon onClick={onClick} />)}
+						max_params={logins.length}
+					>
+						{({param}) => (
+							<AuthPopup
+								login={param}
+							/>
+						)}
+					</Switcher>
 					<Button
 						kind='default'
 						type='button'
